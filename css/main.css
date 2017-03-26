@@ -1,0 +1,17 @@
+body{
+  background-color: #88B04B;
+ 
+}
+#a1{
+  width: 80%;
+  height: 100%;
+  position:fixed;
+  top: -30%;
+  left: 50%;
+  margin-left:-40%;
+}
+#a2{
+  position: absolute;
+  left: -35px;
+  top: 0px;
+}
