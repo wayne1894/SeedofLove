@@ -5,17 +5,97 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page Title</title>
-  
+  <title>多情種子</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
 
-<div id="a1">
-  <img src="images/3.svg" >
-  <img id="a2" src="images/1.svg" >
-</div>
+<body>
+  <div id="seed">
+    <div class="body_left">
+      <img src="images/body_left.png" >
+      <div class="left_hand">
+        <img src="images/left_hand.png">
+      </div>
+      <div class="left_ting">
+        <img src="images/ting.png">
+      </div>
+    </div>
+    <div class="body_center"></div>
+    <div class="body_right">
+      <div class="area">
+        <img class="jump" src="images/jump.png">
+        <img class="_top" src="images/top.png">
+        <img class="music" src="images/music.png">
+      </div>
+    </div>
+    <div class="body_outer">
+      <div class="logo">
+        <img class="logo_img" src="images/logo.png">
+        <div class="logo_txt">
+          收下多情，擺上真心
+          <img style="display:none;" src="images/wave.gif" alt="">
+        </div>
+      </div>
+      <div class="hamburgers">
+        <div class="ribbon">
+          <img src="images/ribbon.png" alt="">
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="scrollBar">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div id="main">
+    <div class="section">
+      <div class="title">
+        <div>多情種子</div>
+        <div>收下多情  擺上真心</div>
+      </div>
+      
+    </div>
+    <div class="section">2</div>
+    <div class="section">3</div>
+    <div class="section">4</div>
+  </div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(function(){
+
+})
+  $(window).resize(function(){
+    var window_width=$(window).width();
+    var window_height=$(window).height();
+    $(".body_right").css("background-size","contain");
+    if(window_width<950 ){
+      $(".body_left").css("width","300px");
+      $(".body_right").css("width","300px");
+      if(window_height>window_width-200){
+        $(".body_left").css("width","250px");
+        $(".body_right").css("width","250px")
+        $(".body_right").css("background-size","cover");
+      }
+    }else{
+      $(".body_left").css("width","400px");
+      $(".body_right").css("width","400px")
+    }
+    
+    var _width=window_width-$(".body_left").width()-$(".body_right").width();
+    
+    $("#seed .body_center").css("width",_width);
+    $("#main").css("width",_width);
+  }).resize()
+</script>
+
+
 </html>

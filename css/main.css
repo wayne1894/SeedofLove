@@ -1,17 +1,186 @@
-body{
-  background-color: #88B04B;
- 
-}
-#a1{
-  width: 80%;
+html,body {
+  width: 100%;
   height: 100%;
-  position:fixed;
-  top: -30%;
-  left: 50%;
-  margin-left:-40%;
+  text-align: center;
 }
-#a2{
+body {
+  overflow: hidden;
+  background-color: #88B04B;
+}
+#seed{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+#seed .body_left{
+  display: inline-block;
+  width: 400px;
+  height: 100%;
+  text-align: right;
+  position: relative;
+  background-image: url(../images/body_left.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  position: relative;
+}
+#seed .body_left>img{
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+#seed .body_left .left_hand{
   position: absolute;
-  left: -35px;
-  top: 0px;
+  width: 25vh;
+  top: 10vh;
+  right: 17vh;
+}
+#seed .body_left .left_hand img{
+  width: 100%
+}
+#seed .body_left .left_ting{
+  position: absolute;
+  width: 12vh;
+  top: 8vh;
+  right: 18vh;
+}
+#seed .body_left .left_ting img{
+  width: 100%
+}
+
+#seed .body_center{
+  display: inline-block;
+  height: 100%;
+  background-color: #ffffff;
+  margin: 0 -4px;
+  max-width: 950px;
+}
+#seed .body_right{
+  display: inline-block;
+  width: 400px;
+  height: 100%;
+  background-image: url(../images/body_right.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center left;
+  position: relative;
+}
+#seed .body_right .area{
+  position: absolute;
+  width: 10vh;
+  height: 5vh;
+  left: 28vh;
+  top: 30vh;
+  text-align: center;
+}
+#seed .body_right .area .jump{
+  display: inline-block;
+  width: 7vh;
+}
+#seed .body_right .area ._top{
+  display: inline-block;
+  width: 7vh;
+}
+#seed .body_right .area .music{
+  display: inline-block;
+  width: 3vh;
+  position: relative;
+  top: 3px;
+}
+#seed .body_outer{
+  z-index: 15;
+}
+#seed .body_outer .logo{
+  left: 2%;
+  bottom: 12%;
+  position: absolute;
+}
+#seed .body_outer .logo .logo_img{
+  width: 14vh;
+}
+#seed .body_outer .logo .logo_txt{
+  margin-top: 5vh;
+  font-size: 1.8vh;
+  color: #ffffff;
+  position: relative;
+  left: 8px;
+  font-weight: bold;
+/*  width: 20vh;*/
+}
+#seed .body_outer .logo .logo_txt img{
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+#seed .body_outer .scrollBar{
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+}
+
+#seed .body_outer .scrollBar>div{
+  width: 10px;
+  height: 7vh;
+  background-color: #DAFC9F;
+  margin-bottom: 5px;
+  border-radius:10px;
+}
+#seed .body_outer .hamburgers{
+  width: 50px;
+  position: absolute;
+  right: 4%;
+  top: 4%;
+  margin-right: -5px;
+}
+#seed .body_outer .ribbon{
+  margin-bottom: -3px;
+}
+#seed .body_outer .hamburgers .ribbon img{
+  width: 100%;
+}
+#seed .body_outer .hamburgers .line{
+  width: 100%;
+  height: 6px;
+  background-color: #ffffff;
+  margin-bottom: 5px;
+}
+
+#main{
+  max-width: 950px;
+  height: 100%;
+  margin: 0 auto;
+  dis/play: none;
+}
+#main .section{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#main .section:nth-child(1){
+/*  background-color: red;*/
+  opacity: .5;
+}
+#main .section:nth-child(2){
+/*  background-color: blue;*/
+  opacity: .5;
+}
+#main .section:nth-child(3){
+/*  background-color: green;*/
+  opacity: .5;
+}
+#main .section:nth-child(4){
+/*  background-color: darkorange;*/
+  opacity: .5;
+}
+
+
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
 }
