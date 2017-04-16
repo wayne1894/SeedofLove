@@ -12,10 +12,10 @@ html,body {
   text-align: center;
 }
 body {
-  overf/low: hidden;
+  overflow: hidden;
   background-color: #88B04B;
   font-family: 'Noto Sans TC','Microsoft JhengHei', sans-serif;
-/*  font-family: Microsoft JhengHei;*/
+ font-family: Microsoft JhengHei;
 }
 #seed{
   height: 100%;
