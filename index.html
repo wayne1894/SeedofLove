@@ -5,17 +5,206 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page Title</title>
-  
+  <title>多情種子</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
 
-<div id="a1">
-  <img src="images/3.svg" >
-  <img id="a2" src="images/1.svg" >
-</div>
+<body>
+  <div id="seed">
+    <div class="body_left">
+      <img src="images/body_left.png" >
+      <div id="left_hand">
+        <img src="images/left_hand.png">
+      </div>
+      <div class="left_ting">
+        <img src="images/ting.png">
+      </div>
+    </div>
+    <div class="body_center"></div>
+    <div class="body_right">
+      <div class="area">
+        <img class="jump" src="images/jump.png">
+        <img class="_top" src="images/top.png">
+        <img class="music" src="images/music.png">
+      </div>
+    </div>
+    <div class="body_outer">
+      <div class="logo">
+        <img class="logo_img" src="images/logo.png">
+        <div class="logo_txt">
+          收下多情，擺上真心
+          <img style="display:none;" src="images/wave.gif" alt="">
+        </div>
+      </div>
+      <div class="hamburgers">
+        <div class="ribbon">
+          <img src="images/ribbon.png" alt="">
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="nav">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div id="main">
+    <div class="section">
+      <div class="main_title">
+          <div class="t1">多情種子</div>
+          <div class="t2">收下多情&nbsp;&nbsp;擺上真心</div>
+      </div>
+      <div class="section5_parent">
+        <div id="section5">
+            <div data-img="content_img/1.jpg" style="background-image:url(content_img/1.jpg);">&nbsp;</div>
+            <div data-img="content_img/2.jpg" style="background-image:url(content_img/2.jpg);">&nbsp;</div>
+            <div data-img="content_img/3.jpg" style="background-image:url(content_img/3.jpg);">&nbsp;</div>
+        </div>
+        <a class="prev changeSection" href="javascript:;"><img src="images/prev.png"></a>
+        <a class="next changeSection" href="javascript:;"><img src="images/next.png"></a>
+
+      </div>
+      
+    </div>
+    <div class="section">
+      <div class="main_title">
+          <div class="t1">CONCEPT</div>
+          <div class="cont"></div>
+          <div class="container1">
+            <div class="left">多情種子是一間販賣禮品的模擬商店，以多肉植物為出發，將贈禮對象為綱要，把多肉植物的特性與造型給予分類，增加品牌的獨特性與話題性。多情，是我們在產品裡面注入的養分，多樣的情感藉由產品交付給對方讓他有深刻的感受；種子，是一個新開始的象徵，充滿著活力與溫暖是我們的品牌概念。提供平價貼近生活的小禮品，讓我們一起把生活變得更有趣吧！</div>
+            <div class="right">
+              <div></div>
+            </div>
+          </div>
+          <div class="container2">
+            <div class="left">
+              <img id="a1" src="images/a/a1.png" alt="">
+              <img id="a2" src="images/a/a2.png" alt="">
+              <img id="a3" src="images/a/a3.png" alt="">
+              <img id="a4" src="images/a/a4.png" alt="">
+              <img id="a5" src="images/a/a5.png" alt="">
+              <img id="a6" src="images/a/a6.png" alt="">
+              <img id="a7" src="images/a/a7.png" alt="">
+              <img id="a8" src="images/a/a8.png" alt="">
+            </div>
+            <div class="right"></div>
+          </div>
+      </div>
+    </div>
+    <div class="section">
+       <div class="main_title">
+          <div class="t1">PRODUCT</div>
+          <div class="t2">series</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="main_title">
+        <div class="t1">Connect</div>
+        <div class="">
+          
+        </div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.823348511652!2d121.44654675668642!3d25.006117847008845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802ab630809fd%3A0xf6189813f5f8fbb8!2z5ZyL56uL6Ie654Gj6Jed6KGT5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1492316084239" width="600" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/velocity.min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+
+<!--greensock-->
+<script type="text/javascript" src="js/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/TimelineMax.min.js"></script>
+<script type="text/javascript" src="js/easing/EasePack.min.js"></script>
+
+<script>
+  $(function(){
+    $(".nav div").click(function() {
+       if($(this).hasClass("active"))return;
+      $(this).addClass("active").siblings().removeClass("active");
+        var index = $(this).index();
+        $("#main .section").eq(index).velocity("stop", true).velocity("scroll",{
+          duration: 400,
+          begin: clearWheel,
+          complete: setWheel
+        });
+    }).eq(0).click();
+    $(document).mousewheel(wheelHandler);
+    
+    
+     $(".changeSection").click(function() {
+         var container = $("#section5"),
+                slide = !container.find(">div.active").length ? 0 : container.find(">div.active").index(),
+                direct = $(this).hasClass("next") ? 1 : -1,
+                target = slide + direct < 0 ? [] : container.find(">div").eq(slide + direct);
+            if (target.length){
+                target.addClass("active").velocity("stop", true).velocity("scroll", {
+                    axis: "x",
+                    duration: 500,
+                    container: container
+                }).siblings().removeClass("active");
+      }
+     })
+    
+  })
+  $(window).resize(function(){
+    var window_width=$(window).width();
+    var window_height=$(window).height();
+    $(".body_right").css("background-size","contain");
+    if(window_width<950 ){
+      $(".body_left").css("width","300px");
+      $(".body_right").css("width","300px");
+      if(window_height>window_width-200){
+        $(".body_left").css("width","250px");
+        $(".body_right").css("width","250px")
+        $(".body_right").css("background-size","cover");
+      }
+    }else{
+      $(".body_left").css("width","400px");
+      $(".body_right").css("width","400px")
+    }
+    
+    var _width=window_width-$(".body_left").width()-$(".body_right").width();
+    
+    $("#seed .body_center").css("width",_width);
+    $("#main").css("width",_width);
+  }).resize()
+
+  function clearWheel(element) {
+    $(document).unmousewheel(wheelHandler)
+  }
+  function setWheel(element) {
+    $(document).mousewheel(wheelHandler)
+  }
+  function wheelHandler(e, delta) {
+    var target = $(".nav div.active");
+    if (delta > 0) {
+        target.prev().click();
+    } else {
+        target.next().click();
+    }
+  }
+
+  
+  
+  $(function(){
+    //gsap的部份
+    //https://greensock.com/get-started-js#easing  
+		TweenMax.to($("#left_hand"), 2, {rotation:"-10deg",transformOrigin:'100% 100%', repeat:-1, yoyo:true, ease:Sine.easeOut});
+
+  })
+  
+</script>
+
+
 </html>
