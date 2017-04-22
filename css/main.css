@@ -10,12 +10,28 @@ html,body {
   width: 100%;
   height: 100%;
   text-align: center;
+  
 }
 body {
   overflow: hidden;
   background-color: #88B04B;
   font-family: 'Noto Sans TC','Microsoft JhengHei', sans-serif;
- font-family: Microsoft JhengHei;
+  font-family: Microsoft JhengHei;
+/*  cursor: url(../images/c.png), default;*/
+}
+body.init>*{
+  display: none;
+}
+#loading{
+  display: none;
+}
+body.init #loading{
+  display: block;
+  margin: 0 auto;
+  width: 40vw;
+  position: relative;
+  line-height: 100vh;
+  top: 10vw;
 }
 #seed{
   height: 100%;
@@ -24,15 +40,10 @@ body {
 }
 #seed .body_left{
   display: inline-block;
-  width: 400px;
   height: 100%;
   text-align: right;
-  position: relative;
-  background-image: url(../images/body_left.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center right;
-  position: relative;
+  position: absolute;
+  left: 0;
 }
 #seed .body_left>img{
   height: 100%;
@@ -43,45 +54,50 @@ body {
   position: absolute;
   width: 25vh;
   top: 10vh;
-  right: 16vh;
+  right: 9vh;
+/*  z-index: 15;*/
 }
 #left_hand img{
   width: 100%
 }
+
 #seed .body_left .left_ting{
   position: absolute;
-  width: 12vh;
-  top: 8vh;
-  right: 18vh;
+  width: 8vh;
+
 }
 #seed .body_left .left_ting img{
-  width: 100%
+  width: 100%;
+  left: -8vh;
+  top: -12vh;
+  position: relative;
 }
 
 #seed .body_center{
   display: inline-block;
   height: 100%;
   background-color: #ffffff;
-  margin: 0 -4px;
-  max-width: 950px;
 }
 #seed .body_right{
   display: inline-block;
-  width: 400px;
   height: 100%;
-  background-image: url(../images/body_right.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center left;
+  text-align: left;
+  position: absolute;
+  right: 0;
+}
+#seed .body_right>img{
+  height: 100%;
   position: relative;
+  z-index: 5;
 }
 #seed .body_right .area{
   position: absolute;
   width: 10vh;
   height: 5vh;
-  left: 28vh;
-  top: 30vh;
+  left: 23vh;
+  top: 28vh;
   text-align: center;
+  z-index: 10;
 }
 #seed .body_right .area .jump{
   display: inline-block;
@@ -119,8 +135,8 @@ body {
 }
 #seed .body_outer .logo .logo_txt img{
   position: absolute;
-  width: 100%;
-  left: 0;
+  width: 104%;
+  left: -2%;
 }
 
 #seed .body_outer .nav{
@@ -130,8 +146,8 @@ body {
 }
 
 #seed .body_outer .nav>div{
-  width: 10px;
-  height: 65px;
+  width: 1vh;
+  height: 7vh;
   background-color: #B9DE7E;
   margin-bottom: 5px;
   border-radius:10px;
@@ -161,7 +177,6 @@ body {
 }
 
 #main{
-  max-width: 950px;
   height: 100%;
   margin: 0 auto;
   dis/play: none;
