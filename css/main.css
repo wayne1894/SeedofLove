@@ -139,6 +139,7 @@ body.init #loading{
   left: -2%;
 }
 
+
 #seed .body_outer .nav{
   position: absolute;
   right: 4%;
@@ -198,18 +199,33 @@ body.init #loading{
   font-size: 6vh;
   color: #88B04B;
   display: inline-block;
+  position: relative;
+}
+#main .main_title .t1 img{
+  position: absolute;
+  width: 104%;
+  left: -2%;
 }
 #main .main_title .t2{
   display: inline-block;
   color: #88B04B;
   font-size: 2.2vh;
+  margin-left: 1.3vh;
 }
 .section5_parent{
   position: relative;
-  height: 50%;
+  height: 60%;
   top: 25vh;
-  width: 110%;
-  margin-left: -5%;
+  width: 100%;
+}
+#mask{
+  position: absolute;
+  width: 81%;
+  left: 50%;
+  top: -1%;
+  margin-left: -40%;
+  z-index: 10;
+  height: 102%;
 }
 #section5{
   margin : 0 auto;
@@ -241,6 +257,7 @@ body.init #loading{
    left: 0px;
    width: 8%;
    margin-top: -5%;
+   z-index: 20;
  }  
 .changeSection.next {
   position:absolute;
@@ -248,6 +265,7 @@ body.init #loading{
   right: 0;
   width: 8%;
   margin-top: -5%;
+  z-index: 20
 }
 .changeSection img{
   width: 100%;

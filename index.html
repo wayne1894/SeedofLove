@@ -213,59 +213,6 @@
           <img id="T" src="images/ting.png">
         </div>
       </div>
-   <script>
-
-
-      $(function(){
-        var $ting=$(".left_ting");
-        var gg=false;
-        var ting=false;
-        var x;
-        var y;
-        $ting.hide();
-
-        $(document.body).on("mousemove.ting",function(event){
-           if(event.target.id=="H" || event.target.id=="T"){
-             $(document.body).css("cursor","none");
-             var left_offset_left=$("#left_hand").offset().left;
-             x=event.clientX-left_offset_left;
-             y=event.clientY;
-             if(x<0 || y/$(window).height() >0.5){
-               if(!ting){
-                 $ting.hide();
-               }
-               $(document.body).css("cursor","auto");
-               gg=false
-               return;
-             }
-             if(!ting){
-               $ting.css("left",x);
-               $ting.css("top",y);
-               $ting.show();
-             }
-             gg=true;
-           }else{
-             if(!ting){
-              $ting.hide();
-             }
-             gg=false;
-             $(document.body).css("cursor","auto");
-           }
-         });
-        $(document.body).on("mousedown.ting",function(event){
-          if(!gg)return;
-          if(!ting){//代表沒被釘
-            tween_left.pause();
-            ting=true;
-            $ting.css("left",x);
-            $ting.css("top",y);
-          }else{
-            tween_left.play();
-            ting=false
-          }
-        })
-      })
-    </script>
     </div>
     <div class="body_center"></div>
     <div class="body_right">
@@ -281,7 +228,7 @@
         <img class="logo_img" src="images/logo.png">
         <div class="logo_txt">
           收下多情，擺上真心
-          <img src="images/wave.gif" alt="">
+          <img src="images/wave.gif">
         </div>
       </div>
       <div class="hamburgers">
@@ -303,12 +250,17 @@
   <div id="main">
     <div class="section">
       <div class="main_title">
-          <div class="t1">多情種子</div>
+          <div class="t1">
+          多情種子
+          <img src="images/wave2.gif">
+          </div>
           <div class="t2">收下多情&nbsp;&nbsp;擺上真心</div>
       </div>
+      
       <div class="section5_parent">
+        <img id="mask" src="images/mask.png">
         <div id="section5">
-            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);">&nbsp;</div>
+            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);"></div>
             <div data-img="content/2.jpg" style="background-image:url(content/2.jpg);">&nbsp;</div>
             <div data-img="content_img/3.jpg" style="background-image:url(content/3.jpg);">&nbsp;</div>
         </div>
@@ -320,7 +272,10 @@
     </div>
     <div class="section">
       <div class="main_title">
-          <div class="t1">CONCEPT</div>
+          <div class="t1">
+            CONCEPT
+            <img src="images/wave2.gif">
+          </div>
           <div class="cont"></div>
           <div class="container1">
             <div class="left">多情種子是一間販賣禮品的模擬商店，以多肉植物為出發，將贈禮對象為綱要，把多肉植物的特性與造型給予分類，增加品牌的獨特性與話題性。多情，是我們在產品裡面注入的養分，多樣的情感藉由產品交付給對方讓他有深刻的感受；種子，是一個新開始的象徵，充滿著活力與溫暖是我們的品牌概念。提供平價貼近生活的小禮品，讓我們一起把生活變得更有趣吧！</div>
@@ -345,13 +300,19 @@
     </div>
     <div class="section">
        <div class="main_title">
-          <div class="t1">PRODUCT</div>
+          <div class="t1">
+            PRODUCT
+            <img src="images/wave2.gif">
+          </div>
           <div class="t2">series</div>
       </div>
     </div>
     <div class="section">
       <div class="main_title">
-        <div class="t1">Connect</div>
+        <div class="t1">
+          Connect
+          <img src="images/wave2.gif">
+        </div>
         <div class="">
           
         </div>
@@ -430,6 +391,58 @@
 
   
 
+  
+  
+  $(function(){
+        var $ting=$(".left_ting");
+        var gg=false;
+        var ting=false;
+        var x;
+        var y;
+        $ting.hide();
+
+        $(document.body).on("mousemove.ting",function(event){
+           if(event.target.id=="H" || event.target.id=="T"){
+             $(document.body).css("cursor","none");
+             var left_offset_left=$("#left_hand").offset().left;
+             x=event.clientX-left_offset_left;
+             y=event.clientY;
+             if(x<0 || y/$(window).height() >0.5){
+               if(!ting){
+                 $ting.hide();
+               }
+               $(document.body).css("cursor","auto");
+               gg=false
+               return;
+             }
+             if(!ting){
+               $ting.css("left",x);
+               $ting.css("top",y);
+               $ting.show();
+             }
+             gg=true;
+           }else{
+             if(!ting){
+              $ting.hide();
+             }
+             gg=false;
+             $(document.body).css("cursor","auto");
+           }
+         });
+        $(document.body).on("mousedown.ting",function(event){
+          if(!gg)return;
+          if(!ting){//代表沒被釘
+            tween_left.pause();
+            ting=true;
+            $ting.css("left",x);
+            $ting.css("top",y);
+          }else{
+            tween_left.play();
+            ting=false
+          }
+        })
+      })
+  
   
 </script>
 
