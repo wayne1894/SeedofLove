@@ -13,15 +13,18 @@
 </head>
 <script>
   if(window.attachEvent) {
-      window.attachEvent('onload', _init);
+    window.attachEvent('onload', _init);
   } else {
-      window.onload = _init;
+    window.onload = _init;
   }
   function _init(){
+    $("#loading").hide();
     setTimeout(function(){
+      $(window).scrollTop(0)
       $(document.body).removeClass("init");
     },500);
   }
+  
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/velocity.min.js"></script>
@@ -219,7 +222,7 @@
       <img src="images/body_right.png" >
       <div class="area">
         <img class="jump" src="images/jump.png">
-        <img class="_top" src="images/top.png">
+        <img class="_top" src="images/top.png" onclick="scroll_top()">
         <img class="music" src="images/music.png">
       </div>
     </div>
@@ -228,7 +231,6 @@
         <img class="logo_img" src="images/logo.png">
         <div class="logo_txt">
           收下多情，擺上真心
-          <img src="images/wave.gif">
         </div>
       </div>
       <div class="hamburgers">
@@ -250,92 +252,139 @@
   <div id="main">
     <div class="section">
       <div class="main_title">
-          <div class="t1">
+          <div class="t1 wave">
           多情種子
-          <img src="images/wave2.gif">
           </div>
           <div class="t2">收下多情&nbsp;&nbsp;擺上真心</div>
       </div>
-      
       <div class="section5_parent">
+        <div id="section5_page">
+          <span class="page">1</span>
+          <span class="page_line"></span>
+          <span class="total">3</span>
+        </div>
         <img id="mask" src="images/mask.png">
         <div id="section5">
-            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);"></div>
+            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);">&nbsp;</div>
             <div data-img="content/2.jpg" style="background-image:url(content/2.jpg);">&nbsp;</div>
             <div data-img="content_img/3.jpg" style="background-image:url(content/3.jpg);">&nbsp;</div>
         </div>
         <a class="prev changeSection" href="javascript:;"><img src="images/prev.png"></a>
         <a class="next changeSection" href="javascript:;"><img src="images/next.png"></a>
-
       </div>
-      
     </div>
     <div class="section">
-      <div class="main_title">
+      <div class="main_title" style="top:12vh">
           <div class="t1">
-            CONCEPT
-            <img src="images/wave2.gif">
+            C<span class="small">ONCEPT</span>
           </div>
           <div class="cont"></div>
-          <div class="container1">
+          <div class="container1 clearfix">
             <div class="left">多情種子是一間販賣禮品的模擬商店，以多肉植物為出發，將贈禮對象為綱要，把多肉植物的特性與造型給予分類，增加品牌的獨特性與話題性。多情，是我們在產品裡面注入的養分，多樣的情感藉由產品交付給對方讓他有深刻的感受；種子，是一個新開始的象徵，充滿著活力與溫暖是我們的品牌概念。提供平價貼近生活的小禮品，讓我們一起把生活變得更有趣吧！</div>
             <div class="right">
-              <div></div>
+              <img src="images/1.svg" alt="">
             </div>
           </div>
-          <div class="container2">
+          <div class="container2 clearfix">
             <div class="left">
-              <img id="a1" src="images/a/a1.png" alt="">
-              <img id="a2" src="images/a/a2.png" alt="">
-              <img id="a3" src="images/a/a3.png" alt="">
-              <img id="a4" src="images/a/a4.png" alt="">
-              <img id="a5" src="images/a/a5.png" alt="">
-              <img id="a6" src="images/a/a6.png" alt="">
-              <img id="a7" src="images/a/a7.png" alt="">
-              <img id="a8" src="images/a/a8.png" alt="">
+              <div class="left_child">
+                <img id="a1" src="images/a/a1.png" alt="">
+                <img id="a2" src="images/a/a2.png" alt="">
+                <img id="a3" src="images/a/a3.png" alt="">
+                <img id="a4" src="images/a/a4.png" alt="">
+                <img id="a5" src="images/a/a5.png" alt="">
+                <img id="a6" src="images/a/a6.png" alt="">
+                <img id="a7" src="images/a/a7.png" alt="">
+              </div>
             </div>
-            <div class="right"></div>
+            <div class="right">
+              <img id="b1" src="images/a/a8.png" alt="">
+            </div>
           </div>
       </div>
     </div>
     <div class="section">
        <div class="main_title">
           <div class="t1">
-            PRODUCT
-            <img src="images/wave2.gif">
+            P<span class="small">RODUCT</span>
           </div>
-          <div class="t2">series</div>
-      </div>
+          <div class="t3">series</div>
+          <div class="product_img">
+            <div>
+              <div><img src="images/p/c1.gif" alt=""></div>
+              <div><img src="images/p/c2.gif" alt=""></div>
+              <div><img src="images/p/c3.gif" alt=""></div>
+            </div>
+             <div>
+               <div><img src="images/p/c4.gif" alt=""></div>
+              <div><img src="images/p/c5.gif" alt=""></div>
+              <div><img src="images/p/c6.png" alt=""></div>
+             </div>
+          </div>
+       </div>
     </div>
     <div class="section">
-      <div class="main_title">
+      <div class="main_title" style="top:12vh">
         <div class="t1">
           Connect
-          <img src="images/wave2.gif">
         </div>
-        <div class="">
-          
+        <div class="kk_parent">
+          <div class="kk clearfix">
+            <div class="left">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;稱</div>
+            <div class="right">多情種子之禮品販賣店</div>
+          </div>
+          <div class="kk clearfix">
+            <div class="left">創立時間</div>
+            <div class="right">2016.09.30</div>
+          </div>
+          <div class="kk clearfix">
+            <div class="left">聯絡電話</div>
+            <div class="right">0963130830</div>
+          </div>
+          <div class="kk clearfix">
+            <div class="left">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</div>
+            <div class="right">如下圖</div>
+          </div> 
         </div>
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.823348511652!2d121.44654675668642!3d25.006117847008845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802ab630809fd%3A0xf6189813f5f8fbb8!2z5ZyL56uL6Ie654Gj6Jed6KGT5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1492316084239" width="600" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.823348511652!2d121.44654675668642!3d25.006117847008845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802ab630809fd%3A0xf6189813f5f8fbb8!2z5ZyL56uL6Ie654Gj6Jed6KGT5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1492316084239" width="100%" style="height:43vh"
+           frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
 
     </div>
   </div>
-
+  
+  <div id="main_mobile">
+    
+  </div>
 </body>
 <script type="text/javascript" src="js/animation.js"></script>
 <script>
+  var new_index=0;
+  function scroll_top(){
+    $("body").velocity("scroll", { 
+      duration: 500,
+      easing: "easeInBack",
+      complete : function(){
+        $(".nav div").eq(0).addClass("active").siblings().removeClass("active");
+      }
+    });
+  }
   $(function(){
     $(".nav div").click(function() {
        if($(this).hasClass("active"))return;
       $(this).addClass("active").siblings().removeClass("active");
         var index = $(this).index();
+        new_index=index;
         $("#main .section").eq(index).velocity("stop", true).velocity("scroll",{
-          duration: 400,
-          begin: clearWheel,
-          complete: setWheel
+          duration: 500,
+          begin: function(){
+            clearWheel();
+          },
+          complete: function(){
+            setWheel();
+          }
         });
     }).eq(0).click();
     $(document).mousewheel(wheelHandler);
@@ -348,7 +397,12 @@
                 target.addClass("active").velocity("stop", true).velocity("scroll", {
                     axis: "x",
                     duration: 500,
-                    container: container
+                    container: container,
+                    complete:function(){ 
+                      var p=slide + direct +1
+                      if(p<=0)p=1;
+                      $("#section5_page .page").html(p)  
+                    }
                 }).siblings().removeClass("active");
       }
      })
@@ -358,13 +412,11 @@
     var window_height=$(window).height();
     var _a=window_height/window_width;
 
-    if(_a>0.5&& _a<0.9){
-      var _width=Math.floor(window_height-(window_height * (_a-0.45)));
-      //切成手機版
-    }else{
-      var _width=window_height*1.15;
+//console.log(_a);
+    if(_a>0.7){//切成手機版
+      
     }
-    
+    var _width=window_height*1.15;
     _width=_width-50;
     var left_width=(window_width-_width)/2;
     var right_width=(window_width-_width)/2;
@@ -372,12 +424,19 @@
     $(".body_right").css("width",right_width);
     $("#seed .body_center").css("width",_width);
     $("#main").css("width",_width);
+    $(".changeSection.next").click();
+    $(".changeSection.prev").click();
+    if(new_index>0){
+      $(".nav div").eq(new_index-1).click();
+      $(".nav div").eq(new_index+1).click();
+    }
   }).resize();
 
   function clearWheel(element) {
     $(document).unmousewheel(wheelHandler)
   }
   function setWheel(element) {
+    clearWheel();
     $(document).mousewheel(wheelHandler)
   }
   function wheelHandler(e, delta) {
@@ -389,10 +448,6 @@
     }
   }
 
-  
-
-  
-  
   $(function(){
         var $ting=$(".left_ting");
         var gg=false;
