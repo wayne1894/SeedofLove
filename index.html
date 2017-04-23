@@ -233,14 +233,6 @@
           收下多情，擺上真心
         </div>
       </div>
-      <div class="hamburgers">
-        <div class="ribbon">
-          <img src="images/ribbon.png" alt="">
-        </div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
       <div class="nav">
         <div class="active"></div>
         <div></div>
@@ -249,6 +241,43 @@
       </div>
     </div>
   </div>
+  
+  <div class="hamburgers">
+    <div class="ribbon">
+      <img src="images/ribbon.png">
+    </div>
+    <div class="line line0"></div>
+    <div class="line_parent">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+    </div>
+    <div id="menu">
+      <div class="menu_child">
+        <div class="home">HOME</div>
+        <div>CONCEPT</div>
+        <div>PRODUCT</div>
+        <div>CONTACT</div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    $(".hamburgers").click(function(){
+      $(this).addClass("show");
+
+      $(".hamburgers .line_parent").one("click",function(event){
+        event.stopPropagation();
+        $(".hamburgers").removeClass("show");
+      })
+    })
+     $("#menu .menu_child").click(function(event){
+      $(".nav div").eq($(event.target).index()).click();
+       event.stopPropagation();
+       $(".hamburgers").removeClass("show");
+       $(".hamburgers .line_parent").off("click");
+    })
+  </script>
+  
   <div id="main">
     <div class="section">
       <div class="main_title">
