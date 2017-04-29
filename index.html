@@ -453,7 +453,7 @@ _loading();
         <a class="phone" href="tel:0900123456"><img src="images/phone.png"></a>
    </div>
   <div id="main_mobile">
-      <div class="section6_parent">
+      <div id="mobile_home" class="section6_parent">
          <div id="section6">
             <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);background-size: 100%;">&nbsp;</div>
             <div data-img="content/2.jpg" style="background-image:url(content/2.jpg);background-size: 100%;">&nbsp;</div>
@@ -467,7 +467,7 @@ _loading();
         <div></div>
         <div></div>
       </div>
-      <div class="mobile_content">
+      <div id="mobile_concept" class="mobile_content">
         <div class="t1">
           C<span class="small">ONCEPT</span>
         </div>
@@ -475,7 +475,7 @@ _loading();
           多情種子是一間販賣禮品的模擬商店，以多肉植物為出發，將贈禮對象為綱要，把多肉植物的特性與造型給予分類，增加品牌的獨特性與話題性。多情，是我們在產品裡面注入的養分，多樣的情感藉由產品交付給對方讓他有深刻的感受；種子，是一個新開始的象徵，充滿著活力與溫暖是我們的品牌概念。提供平價貼近生活的小禮品，讓我們一起把生活變得更有趣吧！
         </div>
       </div>
-      <div class="mobile_content">
+      <div id="mobile_product" class="mobile_content">
         <div class="t1">
           P<span class="small">RODUCT</span>
         </div>
@@ -485,7 +485,7 @@ _loading();
       <div class="mobile_content">
         <img style="width:100%;" src="images/p/big.png" alt="">
       </div>
-      <div class="mobile_content" style="background-color: #88B04B;padding-top:15px;padding-bottom:35px;">
+      <div id="mobile_connect" class="mobile_content" style="background-color: #88B04B;padding-top:15px;padding-bottom:35px;">
         <div class="t1" style="color:#ffffff;">
           <span class="small">Connect</span>
         </div>
@@ -577,6 +577,14 @@ _loading();
           }
         });
     }).eq(0).click();
+    $("#menu_mobile>div").click(function(){
+      var index = $(this).index();
+      if(index==0) $("#mobile_home").velocity("scroll",{duration: 500,
+						easing: "easeOutBack"});
+      if(index==1)$("#mobile_concept").velocity("scroll",{duration: 500,offset: -52});
+      if(index==2)$("#mobile_product").velocity("scroll",{duration: 500,offset: -52});
+      if(index==3)$("#mobile_connect").velocity("scroll",{duration: 500});
+    })
     $(document).mousewheel(wheelHandler);
     $(".changeSection").click(function(){
          var container = $("#section5"),

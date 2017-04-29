@@ -625,6 +625,10 @@ body.init .hamburgers{
   font-size: 15px;
   background-color: #FFFFC5;
 }
+#menu_mobile a{
+  color: #7A5514;
+  text-decoration: none;
+}
 
 #menu_mobile >div{
   line-height: 41px;
