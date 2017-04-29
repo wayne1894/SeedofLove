@@ -13,10 +13,13 @@
 <script>
   if(window.attachEvent) {
     window.attachEvent('onload', _init);
+    alert(1)
   } else {
     window.onload = _init;
+    alert(2)
   }
-  function _init(){ 
+  _init();
+  function _init(){
     setTimeout(function(){
       $("#loading").remove();
       $(window).scrollTop(0)
@@ -431,27 +434,26 @@ _loading();
 
     </div>
   </div>
-  
-  <div id="mobile_header">
-        <div class="hamburgers_mobile">
-          <div class="ribbon">
-            <img src="images/ribbon.png">
-          </div>
-          <div class="line line0"></div>
-          <div class="line_parent">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-          </div>
-          <div id="menu_mobile">
-              <div class="home">HOME</div>
-              <div>CONCEPT</div>
-              <div>PRODUCT</div>
-              <div>CONTACT</div>
-          </div>
-        </div>
-        <img class="mobile_logo" src="images/mobile_logo.png">
-        <a class="phone" href="tel:0900123456"><img src="images/phone.png"></a>
-   </div>
+  <header id="mobile_header">
+    <div class="hamburgers_mobile">
+    <div class="ribbon">
+      <img src="images/ribbon.png">
+    </div>
+    <div class="line line0"></div>
+    <div class="line_parent">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+    </div>
+    <div id="menu_mobile">
+        <div class="home">HOME</div>
+        <div>CONCEPT</div>
+        <div>PRODUCT</div>
+        <div>CONTACT</div>
+    </div>
+  </div>
+  <img class="mobile_logo" src="images/mobile_logo.png">
+  <a class="phone" href="tel:0900123456"><img src="images/phone.png"></a>
+  </header>
   <div id="main_mobile">
       <div id="mobile_home" class="section6_parent">
          <div id="section6">
