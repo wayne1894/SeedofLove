@@ -20,7 +20,7 @@ body {
   font-family: Microsoft JhengHei;
 /*  cursor: url(../images/c.png), default;*/
 }
-body.mobile{
+body.mobile:not(.init){
   overflow-y: scroll;
 }
 body.init>*{
