@@ -14,7 +14,7 @@ html,body {
   text-align: center; 
 }
 body {
- 
+ overflow: hidden;
   background-color: #88B04B;
 /*  font-family: 'Noto Sans TC','Microsoft JhengHei', sans-serif;*/
   font-family: Microsoft JhengHei;
@@ -539,6 +539,7 @@ body.init .hamburgers{
 #main .section:nth-child(4) .map{
   margin-top: 25px;
 }
+
 #mobile_header{
   height: 42px;
   background-color: #8DB943;
