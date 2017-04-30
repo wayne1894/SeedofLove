@@ -58,6 +58,7 @@
   }
 </script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.lazy.min.js"></script>
 <script type="text/javascript" src="js/velocity.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
 <!--greensock-->
@@ -342,9 +343,9 @@ _loading();
         </div>
         <img id="mask" src="images/mask.png">
         <div id="section5">
-            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);background-size: 105%;">&nbsp;</div>
-            <div data-img="content/2.jpg" style="background-image:url(content/2.jpg);background-size: 105%;">&nbsp;</div>
-            <div data-img="content_img/3.jpg" style="background-image:url(content/3.jpg);background-size: 105%;">&nbsp;</div>
+            <div class="lazy" data-src="content/1.jpg" style="background-size: 105%;">&nbsp;</div>
+            <div class="lazy" data-src="content/2.jpg" style="background-size: 105%;">&nbsp;</div>
+            <div class="lazy" data-src="content/3.jpg" style="background-size: 105%;">&nbsp;</div>
         </div>
         <a class="prev changeSection " href="javascript:;"><img src="images/prev.png"></a>
         <a class="next changeSection" href="javascript:;"><img src="images/next.png"></a>
@@ -365,13 +366,13 @@ _loading();
           <div class="container2 clearfix">
             <div class="left">
               <div class="left_child">
-                <img id="a1" src="images/a/a1.png" alt="">
-                <img id="a2" src="images/a/a2.png" alt="">
-                <img id="a3" src="images/a/a3.png" alt="">
-                <img id="a4" src="images/a/a4.png" alt="">
-                <img id="a5" src="images/a/a5.png" alt="">
-                <img id="a6" src="images/a/a6.png" alt="">
-                <img id="a7" src="images/a/a7.png" alt="">
+                <img class="lazy" id="a1" data-src="images/a/a1.png" alt="">
+                <img class="lazy" id="a2" data-src="images/a/a2.png" alt="">
+                <img class="lazy" id="a3" data-src="images/a/a3.png" alt="">
+                <img class="lazy" id="a4" data-src="images/a/a4.png" alt="">
+                <img class="lazy" id="a5" data-src="images/a/a5.png" alt="">
+                <img class="lazy" id="a6" data-src="images/a/a6.png" alt="">
+                <img class="lazy" id="a7" data-src="images/a/a7.png" alt="">
               </div>
             </div>
             <div class="right">
@@ -388,14 +389,14 @@ _loading();
           <div class="t3">series</div>
           <div class="product_img">
             <div>
-              <div><img src="images/p/c1.gif" alt=""></div>
-              <div><img src="images/p/c2.gif" alt=""></div>
-              <div><img src="images/p/c3.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c1.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c2.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c3.gif" alt=""></div>
             </div>
              <div>
-              <div><img src="images/p/c4.gif" alt=""></div>
-              <div><img src="images/p/c5.gif" alt=""></div>
-              <div><img src="images/p/c6.png" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c4.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c5.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c6.png" alt=""></div>
              </div>
           </div>
        </div>
@@ -454,9 +455,9 @@ _loading();
   <div id="main_mobile">
       <div id="mobile_home" class="section6_parent">
          <div id="section6">
-            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);background-size: 100%;">&nbsp;</div>
-            <div data-img="content/2.jpg" style="background-image:url(content/2.jpg);background-size: 100%;">&nbsp;</div>
-            <div data-img="content_img/3.jpg" style="background-image:url(content/3.jpg);background-size: 100%;">&nbsp;</div>
+            <div class="lazy" data-src="content/1.jpg" style="background-size: 100%;">&nbsp;</div>
+            <div class="lazy" data-src="content/2.jpg" style="background-size: 100%;">&nbsp;</div>
+            <div class="lazy" data-src="content/3.jpg" style="background-size: 100%;">&nbsp;</div>
         </div>
          <a class="prev changeSection2" href="javascript:;"><img src="images/prev.png"></a>
          <a class="next changeSection2" href="javascript:;"><img src="images/next.png"></a>
@@ -482,7 +483,7 @@ _loading();
       </div>
       <div class="mobile_content"><img src="images/list.png" style="width:100%;"></div>
       <div class="mobile_content">
-        <img style="width:100%;" src="images/p/big.png" alt="">
+        <img class="lazy" data-original="images/p/big.png" style="width:100%;">
       </div>
       <div id="mobile_connect" class="mobile_content" style="background-color: #88B04B;padding-top:15px;padding-bottom:35px;">
         <div class="t1" style="color:#ffffff;">
@@ -561,6 +562,8 @@ _loading();
     });
   }
   $(function(){
+    $('.lazy').lazy();
+    
     $(".nav div").click(function() {
        if($(this).hasClass("active"))return;
       $(this).addClass("active").siblings().removeClass("active");
@@ -617,6 +620,7 @@ _loading();
                      var p=slide + direct +1
                      if(p<=0)p=1;
                      $(".nav2>div").eq(p-1).addClass("active").siblings().removeClass("active");
+                      $(window).resize();
                     }
             }).siblings().removeClass("active");
       }
@@ -630,7 +634,7 @@ _loading();
           target.addClass("active").velocity("stop", true).velocity("scroll", {
           axis: "x",
           duration: 500,
-          container: container,
+          container: container
        }).siblings().removeClass("active");
     });
   })

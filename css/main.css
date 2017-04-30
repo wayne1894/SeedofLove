@@ -98,7 +98,7 @@ body.init #loading{
 }
 #seed .body_right .area ._top{
   display: inline-block;
-  width: 7vh;
+  width: 7.5vh;
   cursor: pointer;
 }
 #seed .body_right .area .music{
