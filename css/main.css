@@ -558,12 +558,13 @@ body.init .hamburgers{
   top: 4%;
   cursor: pointer;
   z-index: 20;
+  left: 15px;
 }
 .hamburgers_mobile .ribbon{
   margin-bottom: -3px;
   position: relative;
   z-index: 12;
-  left: 15px;
+
 }
 .hamburgers_mobile .ribbon img{
   width: 100%;
@@ -574,7 +575,7 @@ body.init .hamburgers{
   background-color: #ffffff;
   margin-bottom: 3px;
   position: relative;
-  left: 15px;
+
 }
 .hamburgers_mobile.show .line1{
   top: -3px;
@@ -613,6 +614,7 @@ body.init .hamburgers{
   font-weight: bold;
   font-size: 15px;
   background-color: #FFFFC5;
+  left: -15px;
 }
 #menu_mobile a{
   color: #7A5514;

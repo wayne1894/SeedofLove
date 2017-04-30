@@ -366,13 +366,13 @@ _loading();
           <div class="container2 clearfix">
             <div class="left">
               <div class="left_child">
-                <img class="lazy" id="a1" data-src="images/a/a1.png" alt="">
-                <img class="lazy" id="a2" data-src="images/a/a2.png" alt="">
-                <img class="lazy" id="a3" data-src="images/a/a3.png" alt="">
-                <img class="lazy" id="a4" data-src="images/a/a4.png" alt="">
-                <img class="lazy" id="a5" data-src="images/a/a5.png" alt="">
-                <img class="lazy" id="a6" data-src="images/a/a6.png" alt="">
-                <img class="lazy" id="a7" data-src="images/a/a7.png" alt="">
+                <img class="lazy" id="a1" data-src="images/a/a1.png">
+                <img class="lazy" id="a2" data-src="images/a/a2.png">
+                <img class="lazy" id="a3" data-src="images/a/a3.png">
+                <img class="lazy" id="a4" data-src="images/a/a4.png">
+                <img class="lazy" id="a5" data-src="images/a/a5.png">
+                <img class="lazy" id="a6" data-src="images/a/a6.png">
+                <img class="lazy" id="a7" data-src="images/a/a7.png">
               </div>
             </div>
             <div class="right">
@@ -389,14 +389,14 @@ _loading();
           <div class="t3">series</div>
           <div class="product_img">
             <div>
-              <div><img class="lazy" data-src="images/p/c1.gif" alt=""></div>
-              <div><img class="lazy" data-src="images/p/c2.gif" alt=""></div>
-              <div><img class="lazy" data-src="images/p/c3.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c1.gif"></div>
+              <div><img class="lazy" data-src="images/p/c2.gif"></div>
+              <div><img class="lazy" data-src="images/p/c3.gif"></div>
             </div>
              <div>
-              <div><img class="lazy" data-src="images/p/c4.gif" alt=""></div>
-              <div><img class="lazy" data-src="images/p/c5.gif" alt=""></div>
-              <div><img class="lazy" data-src="images/p/c6.png" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c4.gif"></div>
+              <div><img class="lazy" data-src="images/p/c5.gif"></div>
+              <div><img class="lazy" data-src="images/p/c6.png"></div>
              </div>
           </div>
        </div>
@@ -483,7 +483,7 @@ _loading();
       </div>
       <div class="mobile_content"><img src="images/list.png" style="width:100%;"></div>
       <div class="mobile_content">
-        <img class="lazy" data-original="images/p/big.png" style="width:100%;">
+        <img class="lazy" data-src="images/p/big.png" style="width:100%;">
       </div>
       <div id="mobile_connect" class="mobile_content" style="background-color: #88B04B;padding-top:15px;padding-bottom:35px;">
         <div class="t1" style="color:#ffffff;">
@@ -620,7 +620,7 @@ _loading();
                      var p=slide + direct +1
                      if(p<=0)p=1;
                      $(".nav2>div").eq(p-1).addClass("active").siblings().removeClass("active");
-                      $(window).resize();
+                     $(window).resize();
                     }
             }).siblings().removeClass("active");
       }
