@@ -13,12 +13,9 @@
 <script>
   if(window.attachEvent) {
     window.attachEvent('onload', _init);
-    alert(1)
   } else {
     window.onload = _init;
-    alert(2)
   }
-  _init();
   function _init(){
     setTimeout(function(){
       $("#loading").remove();
