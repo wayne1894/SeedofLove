@@ -9,7 +9,6 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  
 </head>
 <script>
   if(window.attachEvent) {
@@ -18,18 +17,50 @@
     window.onload = _init;
   }
   function _init(){
-    $("#loading").hide();
     setTimeout(function(){
+      $("#loading").remove();
       $(window).scrollTop(0)
       $(document.body).removeClass("init");
-    },500);
+    },0);
   }
-  
+  var mobile
+  function set_screen(){
+    var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    var b={};
+    b.width=x;
+    b.height=y;
+    var _a=b.height/b.width;
+    if(_a>0.7){//切成手機版
+      $("#main_mobile").show();
+      $("#mobile_header").show();
+      
+      $(".hamburgers").hide();
+      $("#main").hide();
+      $("#seed").hide();
+      $(document.body).addClass("mobile");
+      mobile=true
+    }else{
+      $(".hamburgers").show();
+      $("#main").show();
+      $("#seed").show();
+      
+      $(document.body).removeClass("mobile");
+      $("#mobile_header").hide();
+      $("#main_mobile").hide();
+      mobile=false
+    }
+    return b;
+  }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.lazy.min.js"></script>
 <script type="text/javascript" src="js/velocity.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-
 <!--greensock-->
 <script type="text/javascript" src="js/TweenMax.min.js"></script>
 <script type="text/javascript" src="js/TimelineMax.min.js"></script>
@@ -37,15 +68,15 @@
 
 
 <body class="init">
-  <div id="loading">
-    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<div id="loading">
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 436 300" style="enable-background:new 0 0 436 300;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{fill:#EA6D81;}
 	.st2{fill:#88B04B;}
 </style>
-<g id="XMLID_40_">
+<g id="XMLID_40_" style="display:none">
 	<g id="XMLID_73_">
 		<circle id="XMLID_74_" class="st0" cx="225.6" cy="150.1" r="57.8"/>
 	</g>
@@ -109,7 +140,7 @@
 		</g>
 	</g>
 </g>
-<g id="XMLID_32_">
+<g id="XMLID_32_" style="display:none">
 	<g id="XMLID_38_">
 		<circle id="XMLID_39_" class="st0" cx="58.5" cy="150.1" r="58.5"/>
 	</g>
@@ -130,7 +161,7 @@
 		</g>
 	</g>
 </g>
-<g id="XMLID_30_">
+<g id="XMLID_30_" style="display:none">
 	<path id="XMLID_31_" class="st0" d="M151.6,151.8c-1.3-3.4-4-5-7.3-6.1c0.1-0.2,0.3-0.4,0.4-0.7c1-0.9,2-1.9,2.9-2.8
 		c0.1-0.1,0.2-0.2,0.3-0.4c0.7-0.6,1.3-1.2,1.8-2c0.7-1.1,0.6-2.3-0.2-3c-0.4-0.6-1.1-0.9-1.7-0.3c-2.6,2.1-5,4.6-7.2,7.3
 		c-3-2-5.9-4-9.3-4.5c-0.2-0.1-0.5-0.2-0.7-0.2c-0.3-0.1-0.6,0-0.9,0.1c-0.1,0-0.2,0.1-0.3,0.2c-0.3,0.3-0.5,0.9-0.4,1.4
@@ -139,7 +170,7 @@
 		c0.1,0,0.2,0.1,0.3,0.1c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0c0.1,0,0.2,0,0.3-0.1c0,0,0.1,0,0.1,0c0.1,0,0.2-0.1,0.3-0.2
 		c0,0,0.1,0,0.1-0.1c2-2,3.9-4,5.6-6.2c2.5,1.3,4.9,2.4,7.5,3.3c0.1,0.1,0.3,0.2,0.4,0.3C150.3,154,152.1,153.2,151.6,151.8z"/>
 </g>
-<g id="XMLID_7_">
+<g id="XMLID_7_" style="display:none">
 	<g id="XMLID_8_">
 		<g id="XMLID_11_">
 			<g id="XMLID_23_">
@@ -192,7 +223,7 @@
 		</g>
 	</g>
 </g>
-<g id="XMLID_2_">
+<g id="XMLID_2_" style="display:none">
 	<g id="XMLID_5_">
 		<path id="XMLID_6_" class="st0" d="M321.7,138.6c-0.3-1.2-1.4-1.7-2.8-1.8c-2.1-0.3-5,0.1-6.6,0.1c-2.4,0-4.7,0.2-7.1,0.4
 			c-1,0.1-3.4,0-4.2,0.8c-0.8,0.8-1.2,2.3,0.2,2.8c0,0,0,0,0,0c0.1,0.1,0.3,0.2,0.5,0.3c0.2,0,0.4,0,0.6,0c1.1,0.2,2.4,0.3,3.7,0.2
@@ -205,8 +236,45 @@
 	</g>
 </g>
 </svg>
-
-  </div>
+<script>
+function clear_loading(){
+  document.getElementById("XMLID_40_").style.display="none";
+  document.getElementById("XMLID_32_").style.display="none";
+  document.getElementById("XMLID_30_").style.display="none";
+  document.getElementById("XMLID_7_").style.display="none";
+  document.getElementById("XMLID_2_").style.display="none";
+}  
+var speed=250;
+function _loading(){
+  if(!document.getElementById("loading"))return;
+  setTimeout(function(){
+    if(!document.getElementById("loading"))return;
+    document.getElementById("XMLID_32_").style.display="";
+    setTimeout(function(){
+      if(!document.getElementById("loading"))return;
+      document.getElementById("XMLID_30_").style.display="";
+      setTimeout(function(){
+        if(!document.getElementById("loading"))return;
+        document.getElementById("XMLID_40_").style.display="";
+        setTimeout(function(){
+          if(!document.getElementById("loading"))return;
+          document.getElementById("XMLID_2_").style.display="";
+          setTimeout(function(){
+            if(!document.getElementById("loading"))return;
+            document.getElementById("XMLID_7_").style.display="";
+            setTimeout(function(){
+              clear_loading();
+              _loading();
+            },speed)
+          },speed);
+        },speed);
+      },speed);
+    },speed);
+  },speed);
+}
+_loading();
+</script>
+</div>
   <div id="seed">
     <div class="body_left">
       <img src="images/body_left.png" >
@@ -241,7 +309,6 @@
       </div>
     </div>
   </div>
-  
   <div class="hamburgers">
     <div class="ribbon">
       <img src="images/ribbon.png">
@@ -260,24 +327,6 @@
       </div>
     </div>
   </div>
-  
-  <script>
-    $(".hamburgers").click(function(){
-      $(this).addClass("show");
-
-      $(".hamburgers .line_parent").one("click",function(event){
-        event.stopPropagation();
-        $(".hamburgers").removeClass("show");
-      })
-    })
-     $("#menu .menu_child").click(function(event){
-      $(".nav div").eq($(event.target).index()).click();
-       event.stopPropagation();
-       $(".hamburgers").removeClass("show");
-       $(".hamburgers .line_parent").off("click");
-    })
-  </script>
-  
   <div id="main">
     <div class="section">
       <div class="main_title">
@@ -294,11 +343,11 @@
         </div>
         <img id="mask" src="images/mask.png">
         <div id="section5">
-            <div data-img="content/1.jpg" style="background-image:url(content/1.jpg);">&nbsp;</div>
-            <div data-img="content/2.jpg" style="background-image:url(content/2.jpg);">&nbsp;</div>
-            <div data-img="content_img/3.jpg" style="background-image:url(content/3.jpg);">&nbsp;</div>
+            <div class="lazy" data-src="content/1.jpg" style="background-size: 105%;">&nbsp;</div>
+            <div class="lazy" data-src="content/2.jpg" style="background-size: 105%;">&nbsp;</div>
+            <div class="lazy" data-src="content/3.jpg" style="background-size: 105%;">&nbsp;</div>
         </div>
-        <a class="prev changeSection" href="javascript:;"><img src="images/prev.png"></a>
+        <a class="prev changeSection " href="javascript:;"><img src="images/prev.png"></a>
         <a class="next changeSection" href="javascript:;"><img src="images/next.png"></a>
       </div>
     </div>
@@ -317,13 +366,13 @@
           <div class="container2 clearfix">
             <div class="left">
               <div class="left_child">
-                <img id="a1" src="images/a/a1.png" alt="">
-                <img id="a2" src="images/a/a2.png" alt="">
-                <img id="a3" src="images/a/a3.png" alt="">
-                <img id="a4" src="images/a/a4.png" alt="">
-                <img id="a5" src="images/a/a5.png" alt="">
-                <img id="a6" src="images/a/a6.png" alt="">
-                <img id="a7" src="images/a/a7.png" alt="">
+                <img class="lazy" id="a1" data-src="images/a/a1.png">
+                <img class="lazy" id="a2" data-src="images/a/a2.png">
+                <img class="lazy" id="a3" data-src="images/a/a3.png">
+                <img class="lazy" id="a4" data-src="images/a/a4.png">
+                <img class="lazy" id="a5" data-src="images/a/a5.png">
+                <img class="lazy" id="a6" data-src="images/a/a6.png">
+                <img class="lazy" id="a7" data-src="images/a/a7.png">
               </div>
             </div>
             <div class="right">
@@ -340,14 +389,14 @@
           <div class="t3">series</div>
           <div class="product_img">
             <div>
-              <div><img src="images/p/c1.gif" alt=""></div>
-              <div><img src="images/p/c2.gif" alt=""></div>
-              <div><img src="images/p/c3.gif" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c1.gif"></div>
+              <div><img class="lazy" data-src="images/p/c2.gif"></div>
+              <div><img class="lazy" data-src="images/p/c3.gif"></div>
             </div>
              <div>
-               <div><img src="images/p/c4.gif" alt=""></div>
-              <div><img src="images/p/c5.gif" alt=""></div>
-              <div><img src="images/p/c6.png" alt=""></div>
+              <div><img class="lazy" data-src="images/p/c4.gif"></div>
+              <div><img class="lazy" data-src="images/p/c5.gif"></div>
+              <div><img class="lazy" data-src="images/p/c6.png"></div>
              </div>
           </div>
        </div>
@@ -383,14 +432,126 @@
 
     </div>
   </div>
-  
+  <header id="mobile_header">
+    <div class="hamburgers_mobile">
+    <div class="ribbon">
+      <img src="images/ribbon.png">
+    </div>
+    <div class="line line0"></div>
+    <div class="line_parent">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+    </div>
+    <div id="menu_mobile">
+        <div class="home">HOME</div>
+        <div>CONCEPT</div>
+        <div>PRODUCT</div>
+        <div>CONTACT</div>
+    </div>
+  </div>
+  <img class="mobile_logo" src="images/mobile_logo.png">
+  <a class="phone" href="tel:0900123456"><img src="images/phone.png"></a>
+  </header>
   <div id="main_mobile">
-    
+      <div id="mobile_home" class="section6_parent">
+         <div id="section6">
+            <div class="lazy" data-src="content/1.jpg" style="background-size: 100%;">&nbsp;</div>
+            <div class="lazy" data-src="content/2.jpg" style="background-size: 100%;">&nbsp;</div>
+            <div class="lazy" data-src="content/3.jpg" style="background-size: 100%;">&nbsp;</div>
+        </div>
+         <a class="prev changeSection2" href="javascript:;"><img src="images/prev.png"></a>
+         <a class="next changeSection2" href="javascript:;"><img src="images/next.png"></a>
+      </div>
+      <div class="nav2">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="mobile_concept" class="mobile_content">
+        <div class="t1">
+          C<span class="small">ONCEPT</span>
+        </div>
+        <div class="c1">
+          多情種子是一間販賣禮品的模擬商店，以多肉植物為出發，將贈禮對象為綱要，把多肉植物的特性與造型給予分類，增加品牌的獨特性與話題性。多情，是我們在產品裡面注入的養分，多樣的情感藉由產品交付給對方讓他有深刻的感受；種子，是一個新開始的象徵，充滿著活力與溫暖是我們的品牌概念。提供平價貼近生活的小禮品，讓我們一起把生活變得更有趣吧！
+        </div>
+      </div>
+      <div id="mobile_product" class="mobile_content">
+        <div class="t1">
+          P<span class="small">RODUCT</span>
+        </div>
+        <div class="t3">series</div>
+      </div>
+      <div class="mobile_content"><img src="images/list.png" style="width:100%;"></div>
+      <div class="mobile_content">
+        <img class="lazy" data-src="images/p/big.png" style="width:100%;">
+      </div>
+      <div id="mobile_connect" class="mobile_content" style="background-color: #88B04B;padding-top:15px;padding-bottom:35px;">
+        <div class="t1" style="color:#ffffff;">
+          <span class="small">Connect</span>
+        </div>
+        <div class="kk_parent2">
+          <div class="kk2 clearfix">
+            <div class="left">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;稱</div>
+            <div class="right">多情種子販賣店</div>
+          </div>
+          <div class="kk2 clearfix">
+            <div class="left">創立時間</div>
+            <div class="right">2016.09.30</div>
+          </div>
+          <div class="kk2 clearfix">
+            <div class="left">聯絡電話</div>
+            <div class="right">0963130830</div>
+          </div>
+          <div class="kk2 clearfix">
+            <div class="left">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</div>
+            <div class="right">如下圖</div>
+          </div> 
+        </div>
+        <div class="mobile_map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.823348511652!2d121.44654675668642!3d25.006117847008845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346802ab630809fd%3A0xf6189813f5f8fbb8!2z5ZyL56uL6Ie654Gj6Jed6KGT5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1492316084239" width="90%" style="height:250px"
+           frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
   </div>
 </body>
-<script type="text/javascript" src="js/animation.js"></script>
 <script>
   var new_index=0;
+  $(".hamburgers").click(function(){
+    $(this).addClass("show");
+    $(".hamburgers .line_parent").one("click",function(event){
+      event.stopPropagation();
+      $(".hamburgers").removeClass("show");
+    })
+  })
+  $("#menu .menu_child").click(function(event){
+    $(".nav div").eq($(event.target).index()).click();
+    event.stopPropagation();
+    $(".hamburgers").removeClass("show");
+    $(".hamburgers .line_parent").off("click");
+  })
+  $(".hamburgers_mobile").click(function(){
+    $(this).addClass("show");
+    $("#menu_mobile").stop().slideToggle(300);
+    $(".hamburgers_mobile .line_parent").one("click",function(event){
+      event.stopPropagation();
+      $(".hamburgers_mobile").removeClass("show");
+      $("#menu_mobile").stop().slideToggle(300)
+    })
+  });
+  $("#menu_mobile").click(function(event){
+
+     event.stopPropagation();
+     $("#menu_mobile").stop().slideToggle(300);
+     $(".hamburgers_mobile").removeClass("show");
+     $(".hamburgers_mobile .line_parent").off("click");
+  })
+  set_screen();
+  
+  //gsap的部份
+  //https://greensock.com/get-started-js#easing 
+  var tween_left=TweenMax.to($("#left_hand"), 2, {rotation:"-12deg",transformOrigin:'100% 100%', repeat:-1,repeatDelay:0.1, yoyo:true, ease:Sine.easeOut});
+  //tween_left.pause()
+   
   function scroll_top(){
     $("body").velocity("scroll", { 
       duration: 500,
@@ -401,6 +562,8 @@
     });
   }
   $(function(){
+    $('.lazy').lazy();
+    
     $(".nav div").click(function() {
        if($(this).hasClass("active"))return;
       $(this).addClass("active").siblings().removeClass("active");
@@ -416,8 +579,16 @@
           }
         });
     }).eq(0).click();
+    $("#menu_mobile>div").click(function(){
+      var index = $(this).index();
+      if(index==0) $("#mobile_home").velocity("scroll",{duration: 500,
+						easing: "easeOutBack"});
+      if(index==1)$("#mobile_concept").velocity("scroll",{duration: 500,offset: -52});
+      if(index==2)$("#mobile_product").velocity("scroll",{duration: 500,offset: -52});
+      if(index==3)$("#mobile_connect").velocity("scroll",{duration: 500});
+    })
     $(document).mousewheel(wheelHandler);
-     $(".changeSection").click(function() {
+    $(".changeSection").click(function(){
          var container = $("#section5"),
                 slide = !container.find(">div.active").length ? 0 : container.find(">div.active").index(),
                 direct = $(this).hasClass("next") ? 1 : -1,
@@ -435,16 +606,43 @@
                 }).siblings().removeClass("active");
       }
      })
+    $(".changeSection2").click(function() {
+         var container = $("#section6"),
+                slide = !container.find(">div.active").length ? 0 : container.find(">div.active").index(),
+                direct = $(this).hasClass("next") ? 1 : -1,
+                target = slide + direct < 0 ? [] : container.find(">div").eq(slide + direct);
+            if (target.length){
+                target.addClass("active").velocity("stop", true).velocity("scroll", {
+                    axis: "x",
+                    duration: 500,
+                    container: container,
+                    complete:function(){ 
+                     var p=slide + direct +1
+                     if(p<=0)p=1;
+                     $(".nav2>div").eq(p-1).addClass("active").siblings().removeClass("active");
+                     $(window).resize();
+                    }
+            }).siblings().removeClass("active");
+      }
+     });
+    $(".nav2 div").click(function() {
+      if($(this).hasClass("active"))return;
+      $(this).addClass("active").siblings().removeClass("active");
+        var index = $(this).index();
+        var container = $("#section6"),
+            target = container.find(">div").eq(index);
+          target.addClass("active").velocity("stop", true).velocity("scroll", {
+          axis: "x",
+          duration: 500,
+          container: container
+       }).siblings().removeClass("active");
+    });
   })
-  $(window).resize(function(){
-    var window_width=$(window).width();
-    var window_height=$(window).height();
-    var _a=window_height/window_width;
 
-//console.log(_a);
-    if(_a>0.7){//切成手機版
-      
-    }
+  $(window).resize(function(){
+    var w=set_screen();
+    var window_width=w.width;
+    var window_height=w.height;
     var _width=window_height*1.15;
     _width=_width-50;
     var left_width=(window_width-_width)/2;
@@ -469,6 +667,7 @@
     $(document).mousewheel(wheelHandler)
   }
   function wheelHandler(e, delta) {
+    if(mobile)return
     var target = $(".nav div.active");
     if (delta > 0) {
         target.prev().click();
@@ -478,57 +677,54 @@
   }
 
   $(function(){
-        var $ting=$(".left_ting");
-        var gg=false;
-        var ting=false;
-        var x;
-        var y;
-        $ting.hide();
+    var $ting=$(".left_ting");
+    var gg=false;
+    var ting=false;
+    var x;
+    var y;
+    $ting.hide();
 
-        $(document.body).on("mousemove.ting",function(event){
-           if(event.target.id=="H" || event.target.id=="T"){
-             $(document.body).css("cursor","none");
-             var left_offset_left=$("#left_hand").offset().left;
-             x=event.clientX-left_offset_left;
-             y=event.clientY;
-             if(x<0 || y/$(window).height() >0.5){
-               if(!ting){
-                 $ting.hide();
-               }
-               $(document.body).css("cursor","auto");
-               gg=false
-               return;
-             }
-             if(!ting){
-               $ting.css("left",x);
-               $ting.css("top",y);
-               $ting.show();
-             }
-             gg=true;
-           }else{
-             if(!ting){
-              $ting.hide();
-             }
-             gg=false;
-             $(document.body).css("cursor","auto");
+    $(document.body).on("mousemove.ting",function(event){
+       if(event.target.id=="H" || event.target.id=="T"){
+         $(document.body).css("cursor","none");
+         var left_offset_left=$("#left_hand").offset().left;
+         x=event.clientX-left_offset_left;
+         y=event.clientY;
+         if(x<0 || y/$(window).height() >0.5){
+           if(!ting){
+             $ting.hide();
            }
-         });
-        $(document.body).on("mousedown.ting",function(event){
-          if(!gg)return;
-          if(!ting){//代表沒被釘
-            tween_left.pause();
-            ting=true;
-            $ting.css("left",x);
-            $ting.css("top",y);
-          }else{
-            tween_left.play();
-            ting=false
-          }
-        })
-      })
-  
+           $(document.body).css("cursor","auto");
+           gg=false
+           return;
+         }
+         if(!ting){
+           $ting.css("left",x);
+           $ting.css("top",y);
+           $ting.show();
+         }
+         gg=true;
+       }else{
+         if(!ting){
+          $ting.hide();
+         }
+         gg=false;
+         $(document.body).css("cursor","auto");
+       }
+     });
+    $(document.body).on("mousedown.ting",function(event){
+      if(!gg)return;
+      if(!ting){//代表沒被釘
+        tween_left.pause();
+        ting=true;
+        $ting.css("left",x);
+        $ting.css("top",y);
+      }else{
+        tween_left.play();
+        ting=false
+      }
+    })
+  })
   
 </script>
-
-
 </html>
