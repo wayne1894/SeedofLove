@@ -307,6 +307,7 @@ body.init .hamburgers{
   top: 1vh;
 }
 #section5_page .page{
+  color: sienna;
   font-size: 4vh;
   position: relative;
   top: -2.5vh;
@@ -318,9 +319,10 @@ body.init .hamburgers{
     top: 5.5vh;
   transform:rotate(-35deg);
   display: inline-block;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid sienna;
 }
 #section5_page .total{
+  color: sienna;
   font-size: 7vh;
   position: relative;
   bottom: -3.5vh;
@@ -392,11 +394,11 @@ body.init .hamburgers{
   font-size: 1.85vh;
   color: #88B04B;
   width: 50%;
-  line-height: 5vh;
-  font-weight: bold;
+  line-height: 4vh;
+  font-weight: normal;
   font-family: Microsoft JhengHei;
   float: left;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   max-height: 40vh;
   overflow: hidden;
 }
