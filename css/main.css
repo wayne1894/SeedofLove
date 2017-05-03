@@ -747,6 +747,9 @@ body.init .hamburgers{
   width: 50%;
   text-align: left;
 }
+.big_img img{
+  margin-bottom: 60px;
+}
 .mobile_map{
   margin-top: 15px;
 }
