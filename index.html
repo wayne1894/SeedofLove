@@ -744,7 +744,7 @@ _loading();
     $(document).mousewheel(wheelHandler)
   }
   function wheelHandler(e, delta) {
-    if(mobile)return
+    if(mobile || document.getElementById("loading"))return
     var target = $(".nav div.active");
     if (delta > 0) {
         target.prev().click();
