@@ -9,6 +9,11 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <style>
+		body.init>*{
+			display: none;
+		}
+	</style>
 </head>
 <script>
   if(window.attachEvent) {
@@ -19,7 +24,7 @@
   function _init(){
     setTimeout(function(){
       $("#loading").remove();
-      $(window).scrollTop(0)
+      $(window).scrollTop(0);
       $(document.body).removeClass("init");
     },1000);
   }
@@ -68,7 +73,7 @@
 
 
 <body class="init">
-<div id="loading">
+	<div id="loading">
 <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 436 300" style="enable-background:new 0 0 436 300;" xml:space="preserve">
 <style type="text/css">
@@ -275,7 +280,7 @@ function _loading(){
 _loading();
 </script>
 </div>
- <div class="lightbox"></div>
+	<div class="lightbox"></div>
   <div id="seed">
     <div class="body_left">
       <img src="images/body_left.png" >

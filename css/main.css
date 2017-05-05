@@ -12,9 +12,6 @@ body {
 body.mobile:not(.init){
   overflow-y: scroll;
 }
-body.init>*{
-  display: none;
-}
 #loading{
   display: none;
 }
@@ -755,6 +752,7 @@ body.init .hamburgers{
 }
 
 .lightbox {
+	display: none;
   position: fixed;
   top: 50%; left: 50%;
 /*  margin: -200px;*/
