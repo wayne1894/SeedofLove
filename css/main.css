@@ -9,6 +9,9 @@ body {
   font-family: Microsoft JhengHei;
 /*  cursor: url(../images/c.png), default;*/
 }
+body.init>*{
+	display: none;
+}
 body.mobile:not(.init){
   overflow-y: scroll;
 }
