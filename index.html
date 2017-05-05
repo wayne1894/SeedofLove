@@ -66,7 +66,7 @@
 <script type="text/javascript" src="js/TimelineMax.min.js"></script>
 <script type="text/javascript" src="js/easing/EasePack.min.js"></script>
 <script type="text/javascript" src="js/jquery.youtubebackground.js"></script>
-
+<script src="js/jquery.jrumble.1.3.min.js"></script>
 
 <body class="init">
 	<div id="loading">
@@ -278,22 +278,22 @@ _loading();
 </div>
 	<div class="lightbox"></div>
   <div id="seed">
-    <div class="body_left">
-      <img src="images/body_left.png" >
+    <div class="body_left" >
+      <img src="images/body_left.png" class="no-drag">
       <div id="left_hand">
-        <img id="H" src="images/left_hand.png">
-        <div class="left_ting">
-          <img id="T" src="images/ting.png">
+        <img id="H" src="images/left_hand.png" class="no-drag">
+        <div class="left_ting" >
+          <img id="T" src="images/ting.png" class="no-drag">
         </div>
       </div>
     </div>
     <div class="body_center"></div>
     <div class="body_right" onselectstart="return false">
-      <img src="images/body_right.png" >
+      <img src="images/body_right.png" class="no-drag">
       <div class="area">
-        <img id="jump" class="jump" src="images/jump.png" onclick="jump_click()">
+        <img id="jump" class="jump no-drag" src="images/jump.png" onclick="jump_click()">
         <img class="_top" src="images/top.png" onclick="scroll_top()">
-        <img id="youtube" class="music" onclick="youtube_click()" src="images/music.png">
+        <img id="youtube" class="music no-drag" onclick="youtube_click()" src="images/music.png" >
       </div>
     </div>
     <div class="body_outer">
@@ -368,19 +368,68 @@ _loading();
           <div class="container2 clearfix">
             <div class="left">
               <div class="left_child">
-                <img class="lazy" id="a1" data-src="images/a/a1.png">
-                <img class="lazy" id="a2" data-src="images/a/a2.png">
-                <img class="lazy" id="a3" data-src="images/a/a3.png">
-                <img class="lazy" id="a4" data-src="images/a/a4.png">
-                <img class="lazy" id="a5" data-src="images/a/a5.png">
-                <img class="lazy" id="a6" data-src="images/a/a6.png">
-                <img class="lazy" id="a7" data-src="images/a/a7.png">
+                 <img id="a1" src="images/a/a1.png">
+                 <img id="a2" src="images/a/a2.png">
+                 <img id="a3" src="images/a/a3.png">
+                 <img id="a4" src="images/a/a4.png">
+                 <img id="a5" src="images/a/a5.png">
+                 <img id="a6" src="images/a/a6.png">
+                 <img id="a7" src="images/a/a7.png">
+                 <div class="twice">CLICK TWICE</div>
               </div>
             </div>
             <div class="right">
-              <img id="b1" src="images/a/a8.png" alt="">
+              <img id="aa_img" src="images/a/a8.png">
+              <div id="bb_img">
+                <img id="b1" class="lazy" data-src="images/a/b1.png">
+                <img id="b2" class="lazy" data-src="images/a/b2.png">
+                <img id="b3" class="lazy" data-src="images/a/b3.png">
+                <img id="b4" class="lazy" data-src="images/a/b4.png">
+                <img id="b5" class="lazy" data-src="images/a/b5.png">
+                <img id="b6" class="lazy" data-src="images/a/b6.png">
+                <img id="b7" class="lazy" data-src="images/a/b7.png">
+              </div>
             </div>
           </div>
+          
+          <script>
+            var aaa=$(".container2").html();
+            var ggg=function(){
+              var k=0;
+              $(".left_child img").one("dblclick",function(){
+                
+                var a_id=this.id;
+                var b_id="b"+a_id.split("a")[1];
+                //this.src="images/a/"+b_id+".png"
+                var x=$("#"+b_id).offset().left - $("#"+a_id).offset().left;
+                var a_y=$("#"+a_id).position().top;
+                var b_y=$("#"+b_id).position().top;
+                var a1=TweenMax.to($("#"+a_id), 3.5, {rotation:"-12deg",opacity:.9, x:"+="+x,ease:Power3.easeOut ,onComplete:function(){
+                  
+                  k=k+1;
+                  if(k==7){
+                    $("#aa_img").attr("src","images/a/b8.png");
+                    $(".twice").html("REPLACE").one("click",function(){
+                      $(".container2").html(aaa);
+                      ggg()
+                    });
+                    
+                  }
+                }});
+                var a2=TweenMax.to($("#"+a_id), 0.8,{y:"+="+-110,yoyo:true,repeat:1,ease:Power3.easeOut,onComplete:function(){
+                  TweenMax.to($("#"+a_id), 0.8,{y:b_y-a_y ,ease:Power3.easeOut})
+                  $("#"+a_id).attr("src","images/a/"+b_id+".png");
+                }})
+                
+              })
+            }
+              
+            $(function(){
+              ggg()
+            })
+          </script>
+          
+          
       </div>
     </div>
     <div class="section">
@@ -789,21 +838,42 @@ _loading();
          $(document.body).css("cursor","auto");
        }
      });
+    var ting_num=0
     $(document.body).on("mousedown.ting",function(event){
+      
       if(!gg)return;
       if(!ting){//代表沒被釘
+        ting_num=ting_num+1;
         tween_left.pause();
         ting=true;
         $ting.css("left",x);
         $ting.css("top",y);
       }else{
+        if(ting_num>2){//被釘三次就掉了
+          TweenMax.killTweensOf($("#left_hand"))
+          TweenMax.to($("#left_hand"), 3, {rotation:"-180deg",y:600,opacity:0,transformOrigin:'100% 100%', yoyo:true, ease:Sine.easeOut});
+        }
         tween_left.play();
-        ting=false
+        ting=false;
       }
     })
   })
   $(window).on('beforeunload', function() {
     $(window).scrollTop(0); 
 	});
+  
+  
+   //晃動 https://jackrugile.com/jrumble/
+    $(".logo_img").jrumble({
+      x: 2,
+      y: 2,
+      opacity: true,
+	  opacityMin: .5
+    }).hover(function(){
+	  $(this).trigger('startRumble');
+    }, function(){
+      $(this).trigger('stopRumble');
+    });
+  
 </script>
 </html>
