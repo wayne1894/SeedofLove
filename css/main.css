@@ -770,12 +770,6 @@ body.init .hamburgers{
    opacity: 0;
 }
 
-#player_parent{
-  position: absolute;
-  visibility: hidden;
-  
-}
-
 
 .clearfix:before,
 .clearfix:after {
