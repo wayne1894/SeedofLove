@@ -769,7 +769,9 @@ body.init .hamburgers{
 .lightbox.opacity{
    opacity: 0;
 }
-
+#background-video{
+  display: none;
+}
 
 .clearfix:before,
 .clearfix:after {

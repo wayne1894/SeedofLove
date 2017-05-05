@@ -65,6 +65,7 @@
 <script type="text/javascript" src="js/TweenMax.min.js"></script>
 <script type="text/javascript" src="js/TimelineMax.min.js"></script>
 <script type="text/javascript" src="js/easing/EasePack.min.js"></script>
+<script type="text/javascript" src="js/jquery.youtubebackground.js"></script>
 
 
 <body class="init">
@@ -287,10 +288,10 @@ _loading();
       </div>
     </div>
     <div class="body_center"></div>
-    <div class="body_right">
+    <div class="body_right" onselectstart="return false">
       <img src="images/body_right.png" >
       <div class="area">
-        <img class="jump" src="images/jump.png">
+        <img id="jump" class="jump" src="images/jump.png" onclick="jump_click()">
         <img class="_top" src="images/top.png" onclick="scroll_top()">
         <img id="youtube" class="music" onclick="youtube_click()" src="images/music.png">
       </div>
@@ -519,18 +520,75 @@ _loading();
         </div>
       </div>
   </div>
-
+<div id="background-video"></div>
  <script>
+//youtube 聲音的部份
+//https://developers.google.com/youtube/js_api_reference
+      $('#background-video').YTPlayer({
+        fitToBackground: true,
+        videoId: 'eBKfy0FwUC8',
+        mute : false,
+        callback: function() {
+          videoCallbackEvents();
+        }
+      });
+      var player
+      var videoCallbackEvents = function() {
+        player= $('#background-video').data('ytPlayer').player;
+        player.setVolume(70);//預設聲音大小
+        player.addEventListener('onStateChange', function(event){
+            //console.log("Player State Change", event);
+            // OnStateChange Data
+          //console.log(event.data)
+          
+            if (event.data === 0) {          
+                console.log('video ended');
+            }
+            else if (event.data === 2) {          
+              console.log('paused');
+            }
+        });
+      }
    function youtube_click(){
      if($("#youtube").attr("src").indexOf("close")==-1){
        $("#youtube").attr("src","images/music_close.png");
-       
+       player.pauseVideo();
      }else{
        $("#youtube").attr("src","images/music.png");
-       
+       player.playVideo();
      }
    }
- 
+   
+
+   var is_jump=true;
+   var is_number=0
+   function jump_click(){
+     is_number=is_number+1;
+     if(is_jump){
+       var volume=player.getVolume();
+       volume=volume-10;
+       if(volume<0)volume=100;
+       player.setVolume(volume);
+       var y=-(volume+20);
+       var x=0;
+       var rotation="";
+       is_jump=false;
+       var sec=(volume/100)+0.3;
+       if(sec<0.5)sec=0.5;
+       
+       if(is_number>8 || 1==-1){
+         y=-400;
+         x=55;
+         sec=5;
+         is_number=0;
+         rotation="-160deg"
+       }
+       jump_tween=TweenMax.from($("#jump"), sec, {ease: Bounce.easeOut,transformOrigin:'50% 100%', y: y,x:x,rotation:rotation,onComplete:function(){
+         is_jump=true;
+       }});
+    }
+     
+   }
     </script>
 </body>
 <script>
