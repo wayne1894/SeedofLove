@@ -769,6 +769,10 @@ body.init .hamburgers{
    opacity: 0;
 }
 
+#player{
+	dis/play: none;
+}
+
 
 .clearfix:before,
 .clearfix:after {
