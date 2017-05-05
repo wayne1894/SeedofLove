@@ -106,6 +106,7 @@ body.init #loading{
   width: 3vh;
   position: relative;
   top: 3px;
+  cursor: pointer;
 }
 #seed .body_outer{
   z-index: 15;
@@ -769,8 +770,10 @@ body.init .hamburgers{
    opacity: 0;
 }
 
-#player{
-	dis/play: none;
+#player_parent{
+  position: absolute;
+  visibility: hidden;
+  
 }
 
 
