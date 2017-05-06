@@ -17,7 +17,7 @@ img.no-drag{
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-body.init>*{
+body.init>*:not(#lightbox2){
 	display: none;
 }
 body.mobile:not(.init){
@@ -828,19 +828,21 @@ body.init .hamburgers{
   margin-top: 15px;
 }
 
-.lightbox {
-	display: none;
+.lightbox{
   position: fixed;
   top: 50%; left: 50%;
 /*  margin: -200px;*/
-  box-shadow: 0 0 0 50vmax #8db943;
   z-index: 100;
-  opacity: 1;
-  transition: opacity 1s;
+  opacity: 0;
 }
 .lightbox.opacity{
-   opacity: 0;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
+#lightbox1{
+  box-shadow: 0 0 0 50vmax #ffffff;
+}
+
 #background-video{
   display: none;
 }

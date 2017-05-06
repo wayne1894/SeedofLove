@@ -18,9 +18,15 @@
   }
   function _init(){
     setTimeout(function(){
-      $("#loading").remove();
+      
       $(window).scrollTop(0);
-      $(document.body).removeClass("init");
+      $("#loading").remove();
+      
+      $("#lightbox2").css({opacity:1,boxShadow:"0 0 0 50vmax #8db943"});
+      TweenMax.to($("#lightbox2"), 2, { opacity:0,boxShadow:"0 0 0 50vmax #ffffff", ease:Sine.easeOut,onComplete:function(){
+        $(document.body).removeClass("init");
+      }});
+      
     },1000);
   }
   var mobile
@@ -276,7 +282,8 @@ function _loading(){
 _loading();
 </script>
 </div>
-	<div class="lightbox"></div>
+  <div id="lightbox2" class="lightbox"></div>
+  <div id="lightbox1" class="lightbox opacity"></div>
   <div id="seed">
     <div class="body_left" >
       <img src="images/body_left.png" class="no-drag">
