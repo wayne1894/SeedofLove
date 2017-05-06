@@ -840,7 +840,7 @@ body.init .hamburgers{
   transition: opacity .3s ease;
 }
 #lightbox1{
-  box-shadow: 0 0 0 50vmax #ffffff;
+  box-shadow: 0 0 0 50vmax #8db943;
 }
 
 #background-video{

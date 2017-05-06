@@ -23,7 +23,7 @@
       $("#loading").remove();
       
       $("#lightbox2").css({opacity:1,boxShadow:"0 0 0 50vmax #8db943"});
-      TweenMax.to($("#lightbox2"), 2, { opacity:0,boxShadow:"0 0 0 50vmax #ffffff", ease:Sine.easeOut,onComplete:function(){
+      TweenMax.to($("#lightbox2"), 1.7, { opacity:0,boxShadow:"0 0 0 50vmax #ffffff", ease:Power4.easeOut,onComplete:function(){
         $(document.body).removeClass("init");
       }});
       
@@ -298,7 +298,7 @@ _loading();
     <div class="body_right" onselectstart="return false">
       <img src="images/body_right.png" class="no-drag">
       <div class="area">
-        <img id="jump" class="jump no-drag" src="images/jump.png" onclick="jump_click()">
+        <img id="jump" class="jump no-drag" src="images/jump.png" onmouseover="jump_click()">
         <img class="_top" src="images/top.png" onclick="scroll_top()">
         <img id="youtube" class="music no-drag" onclick="youtube_click()" src="images/music.png" >
       </div>
@@ -617,27 +617,22 @@ _loading();
    
 
    var is_jump=true;
-   var is_number=0
-   function jump_click(){
-     is_number=is_number+1;
+   function jump_click(number){
+     if (number==undefined)number=0
      if(is_jump){
-       var volume=player.getVolume();
-       volume=volume-10;
-       if(volume<0)volume=100;
-       player.setVolume(volume);
-       var y=-(volume+20);
+       var y=-70;
        var x=0;
        var rotation="";
        is_jump=false;
-       var sec=(volume/100)+0.3;
-       if(sec<0.5)sec=0.5;
-       
-       if(is_number>8 || 1==-1){
+       var sec=1
+       if(number==3){
          y=-400;
          x=55;
          sec=5;
-         is_number=0;
          rotation="-160deg"
+       }else if(number==0){
+         y=-15;
+         sec=0.5;
        }
        jump_tween=TweenMax.from($("#jump"), sec, {ease: Bounce.easeOut,transformOrigin:'50% 100%', y: y,x:x,rotation:rotation,onComplete:function(){
          is_jump=true;
@@ -686,8 +681,12 @@ _loading();
   //tween_left.pause()
    
   function scroll_top(){
+    var _number=$(".nav div.active").index()
+    jump_click(_number);
+    var duration=500
+    if(_number==3)duration=1500
     $("body").velocity("scroll", { 
-      duration: 500,
+      duration: duration,
       easing: "easeInBack",
       complete : function(){
         $(".nav div").eq(0).addClass("active").siblings().removeClass("active");
@@ -868,8 +867,6 @@ _loading();
   $(window).on('beforeunload', function() {
     $(window).scrollTop(0); 
 	});
-  
-  
    //晃動 https://jackrugile.com/jrumble/
     $(".logo_img").jrumble({
       x: 2,
@@ -881,6 +878,11 @@ _loading();
     }, function(){
       $(this).trigger('stopRumble');
     });
+  
+  
+  function open_modal(){
+    $("#lightbox1").css("opacity",.7);
+  }
   
 </script>
 </html>
