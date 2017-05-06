@@ -446,15 +446,24 @@ _loading();
           <div class="t3">series</div>
           <div class="product_img">
             <div>
-              <div><img class="lazy" data-src="images/p/c1.gif"></div>
-              <div><img class="lazy" data-src="images/p/c2.gif"></div>
-              <div><img class="lazy" data-src="images/p/c3.gif"></div>
+              <div><img class="lazy" data-src="images/p/c1.gif" onclick="open_modal('c1')"></div>
+              <div><img class="lazy" data-src="images/p/c2.gif" onclick="open_modal('c2')"></div>
+              <div><img class="lazy" data-src="images/p/c3.gif" onclick="open_modal('c3')"></div>
             </div>
              <div>
-              <div><img class="lazy" data-src="images/p/c4.gif"></div>
-              <div><img class="lazy" data-src="images/p/c5.gif"></div>
-              <div><img class="lazy" data-src="images/p/c6.png"></div>
+              <div><img class="lazy" data-src="images/p/c4.gif" onclick="open_modal('c4')"></div>
+              <div><img class="lazy" data-src="images/p/c5.gif" onclick="open_modal('c5')"></div>
+              <div><img class="lazy" data-src="images/p/c6.png" onclick="open_modal('c6')"></div>
              </div>
+          </div>
+          <div class="product_img_open">
+              <div class="close"><img src="images/close.png" onclick="close_modal()"></div>
+              <img id="c1" class="lazy" data-src="images/s/1.png">
+              <img id="c2" class="lazy" data-src="images/s/2.png">
+              <img id="c3" class="lazy" data-src="images/s/3.png">
+              <img id="c4" class="lazy" data-src="images/s/4.png">
+              <img id="c5" class="lazy" data-src="images/s/5.png">
+              <img id="c6" class="lazy" data-src="images/s/6.png">
           </div>
        </div>
     </div>
@@ -613,8 +622,6 @@ _loading();
        player.playVideo();
      }
    }
-   
-
    var is_jump=true;
    function jump_click(number){
      if (number==undefined)number=0
@@ -696,6 +703,7 @@ _loading();
     $('.lazy').lazy();
     
     $(".nav div").click(function() {
+      if(modal)close_modal();
        if($(this).hasClass("active"))return;
       $(this).addClass("active").siblings().removeClass("active");
         var index = $(this).index();
@@ -914,10 +922,20 @@ var ting=false;
       $(this).trigger('stopRumble');
     });
   
-  
-  function open_modal(){
+  var modal=false
+  function open_modal(c){
+    modal=true
     $("#lightbox1").css("opacity",.7);
+    $(".product_img_open").show();
+    $(".product_img_open>img").hide();
+    $("#"+c).show();
   }
+   function close_modal(){
+     modal=false
+     $("#lightbox1").css("opacity",0);
+     $(".product_img_open").hide();
+     $(".product_img_open>img").hide();
+   }
   
 </script>
 </html>
