@@ -18,7 +18,6 @@
   }
   function _init(){
     setTimeout(function(){
-      
       $(window).scrollTop(0);
       $("#loading").remove();
       
@@ -352,7 +351,7 @@ _loading();
         </div>
         <img id="mask" src="images/mask.png">
         <div id="section5">
-            <div class="lazy" data-src="content/1.jpg" style="background-size: 105%;">&nbsp;</div>
+            <div style="background-size: 105%; display: inline-block; background-image: url('content/1.jpg'); overflow: hidden;">&nbsp;</div>
             <div class="lazy" data-src="content/2.jpg" style="background-size: 105%;">&nbsp;</div>
             <div class="lazy" data-src="content/3.jpg" style="background-size: 105%;">&nbsp;</div>
         </div>
@@ -626,9 +625,9 @@ _loading();
        is_jump=false;
        var sec=1
        if(number==3){
-         y=-400;
+         y=-370;
          x=55;
-         sec=5;
+         sec=4.5;
          rotation="-160deg"
        }else if(number==0){
          y=-15;
@@ -701,8 +700,15 @@ _loading();
       $(this).addClass("active").siblings().removeClass("active");
         var index = $(this).index();
         new_index=index;
+      var duration=700;
+      var easing=[.825,0,.5,1];
+      if(ting){
+        duration=1000;
+        easing=[.825,0,.5,1];
+      }
         $("#main .section").eq(index).velocity("stop", true).velocity("scroll",{
-          duration: 500,
+          duration: duration,
+          easing: easing,
           begin: function(){
             clearWheel();
           },
@@ -721,6 +727,7 @@ _loading();
     })
     $(document).mousewheel(wheelHandler);
     $(".changeSection").click(function(){
+      $(window).scroll();
          var container = $("#section5"),
                 slide = !container.find(">div.active").length ? 0 : container.find(">div.active").index(),
                 direct = $(this).hasClass("next") ? 1 : -1,
@@ -799,6 +806,8 @@ _loading();
     $(document).mousewheel(wheelHandler)
   }
   function wheelHandler(e, delta) {
+    clear_scroll() //先清除
+    if(ting)auto_scroll();
     if(mobile || document.getElementById("loading"))return
     var target = $(".nav div.active");
     if (delta > 0) {
@@ -807,6 +816,23 @@ _loading();
         target.next().click();
     }
   }
+  var auto_time
+  function clear_scroll(){
+     clearTimeout(auto_time); //先清除
+  }
+  function auto_scroll(){//設定自動輪播
+   clear_scroll();
+   auto_time=setTimeout(function(){
+     var target = $(".nav div.active");
+     if (target.index()==3) {
+       scroll_top();
+     }else{
+       target.next().click();
+     }
+     auto_scroll();
+   },4500)//4.5秒往下滑
+  }
+  
 var ting=false;
   $(function(){
     var $ting=$(".left_ting");
@@ -857,7 +883,8 @@ var ting=false;
       if(!gg)return;
       if(!ting){//代表沒被釘
         ting_num=ting_num+1;
-        tween_left.pause();
+        tween_left.pause();//釘下去
+        auto_scroll();//設定自動輪播
         ting=true;
         $ting.css("left",x);
         $ting.css("top",y);
@@ -866,6 +893,7 @@ var ting=false;
           TweenMax.killTweensOf($("#left_hand"))
           TweenMax.to($("#left_hand"), 3, {rotation:"-180deg",y:600,opacity:0,transformOrigin:'100% 100%', yoyo:true, ease:Sine.easeOut});
         }
+        clear_scroll();
         tween_left.play();
         ting=false;
       }
