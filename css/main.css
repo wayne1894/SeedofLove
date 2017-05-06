@@ -449,13 +449,12 @@ body.init .hamburgers{
   left: 4vh;
 }
 #bb_img img{
-  width: 14vh;
   visibility: hidden;
 }
 .left_child{
-  height: 30vh;
+  height: 35vh;
   position: relative;
-  z-index: 40;
+  z-index: 50;
 }
 .twice{
   position: absolute;
@@ -467,38 +466,45 @@ body.init .hamburgers{
   font-family: Microsoft JhengHei;
 }
 #a1{
+  width: 19vh;
   position: absolute;
-  left: 49%;
-  top: 13%;
+  left: 70%;
+  top: 0%;
 }
 #a2{
+  width: 13vh;
   position: absolute;
-  left: 29%;
+  left: 23%;
   top: 33%;
 }
 #a3{
+  width: 15vh;
   position: absolute;
-  left: 9%;
+  left: 0%;
   top: 43%;
 }
 #a4{
+  width: 20vh;
   position: absolute;
-    left: 22%;
-    top: 69%;
+    left: 40%;
+    top: 19%;
 }
 #a5{
+  width: 20vh;
   position: absolute;
-  left: 47%;
+  left: 24%;
   top: 59%;
 }
 #a6{
+  width: 20vh;    
   position: absolute;
   left: 67%;
   top: 40%;
 }
 #a7{
+  width: 19vh;    
   position: relative;
-  left: 16%;
+  left: 6%;
   top: 10%;
 }
 #aa_img{
