@@ -807,11 +807,10 @@ _loading();
         target.next().click();
     }
   }
-
+var ting=false;
   $(function(){
     var $ting=$(".left_ting");
     var gg=false;
-    var ting=false;
     var x;
     var y;
     $ting.hide();
@@ -844,9 +843,17 @@ _loading();
          $(document.body).css("cursor","auto");
        }
      });
-    var ting_num=0
+    var ting_num=0;
+    var timg_time
     $(document.body).on("mousedown.ting",function(event){
-      
+       ting_num=ting_num+1;
+       if(!timg_time){
+         timg_time=setTimeout(function(){
+           ting_num=0;
+           clearTimeout(timg_time);
+           timg_time=undefined;
+         },3000)//1秒內按下10次 就會掉
+       }
       if(!gg)return;
       if(!ting){//代表沒被釘
         ting_num=ting_num+1;
@@ -855,7 +862,7 @@ _loading();
         $ting.css("left",x);
         $ting.css("top",y);
       }else{
-        if(ting_num>2){//被釘三次就掉了
+        if(ting_num>20){
           TweenMax.killTweensOf($("#left_hand"))
           TweenMax.to($("#left_hand"), 3, {rotation:"-180deg",y:600,opacity:0,transformOrigin:'100% 100%', yoyo:true, ease:Sine.easeOut});
         }
