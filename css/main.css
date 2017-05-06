@@ -9,11 +9,19 @@ body {
   font-family: Microsoft JhengHei;
 /*  cursor: url(../images/c.png), default;*/
 }
+img.no-drag{
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+body.init>*:not(#lightbox2){
+	display: none;
+}
 body.mobile:not(.init){
   overflow-y: scroll;
-}
-body.init>*{
-  display: none;
 }
 #loading{
   display: none;
@@ -95,6 +103,7 @@ body.init #loading{
 #seed .body_right .area .jump{
   display: inline-block;
   width: 7vh;
+  cursor: pointer;
 }
 #seed .body_right .area ._top{
   display: inline-block;
@@ -106,6 +115,7 @@ body.init #loading{
   width: 3vh;
   position: relative;
   top: 3px;
+  cursor: pointer;
 }
 #seed .body_outer{
   z-index: 15;
@@ -421,6 +431,7 @@ body.init .hamburgers{
   width: 50%;
   position: relative;
   float: left;
+  z-index: 40
 }
 #main .section:nth-child(2) .container2 .right{
   width: 50%;
@@ -430,50 +441,112 @@ body.init .hamburgers{
 }
 #main .section:nth-child(2) .container2 .left img{
   width: 14vh;
+  cursor: pointer;
 }
-#main .section:nth-child(2) .container2 .right img{
+#main .section:nth-child(2) .container2 .right #aa_img{
   width: 50vh;
   position: relative;
   left: 4vh;
 }
+#bb_img img{
+  width: 14vh;
+  visibility: hidden;
+}
 .left_child{
   height: 30vh;
   position: relative;
+  z-index: 40;
+}
+.twice{
+  position: absolute;
+   bottom: 1vh;
+  left: 0vh;
+  font-size: 1.7vh;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: Microsoft JhengHei;
 }
 #a1{
   position: absolute;
-  left: 54%;
+  left: 49%;
   top: 13%;
 }
 #a2{
   position: absolute;
-  left: 34%;
+  left: 29%;
   top: 33%;
 }
 #a3{
   position: absolute;
-  left: 14%;
+  left: 9%;
   top: 43%;
 }
 #a4{
   position: absolute;
-  left:24%;
-  top: 13%;
+    left: 22%;
+    top: 69%;
 }
 #a5{
   position: absolute;
-  left: 60%;
-  top: 55%;
+  left: 47%;
+  top: 59%;
 }
 #a6{
   position: absolute;
-  left: 74%;
-  top: 43%;
+  left: 67%;
+  top: 40%;
 }
 #a7{
+  position: relative;
+  left: 16%;
+  top: 10%;
+}
+#aa_img{
   position: absolute;
-  left: 14%;
-  top: 73%;
+  z-index: 20;
+}
+#bb_img{
+  position:absolute;
+  z-index: 25;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#b1{
+  position: absolute;
+  top: 10%;
+  left: 26%;
+}
+#b2{
+  position: absolute;
+    top: 7%;
+    left: 44%;
+}
+#b3{
+  position: absolute;
+    top: 7%;
+    left: 60%;
+}
+#b4{
+  position: absolute;
+    top: 21%;
+    left: 35%;
+}
+#b5{
+  position: absolute;
+    top: 26%;
+    left: 51%;
+}
+#b6{
+  position: absolute;
+    top: 20%;
+    left: 70%;
+}
+#b7{
+  position: absolute;
+  top: 27%;
+  left: 27%;
 }
 
 #main .section:nth-child(2) .container2 .right{
@@ -754,6 +827,26 @@ body.init .hamburgers{
 .mobile_map{
   margin-top: 15px;
 }
+
+.lightbox{
+  position: fixed;
+  top: 50%; left: 50%;
+/*  margin: -200px;*/
+  z-index: 100;
+  opacity: 0;
+}
+.lightbox.opacity{
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+#lightbox1{
+  box-shadow: 0 0 0 50vmax #8db943;
+}
+
+#background-video{
+  display: none;
+}
+
 .clearfix:before,
 .clearfix:after {
   content: "";
@@ -761,4 +854,20 @@ body.init .hamburgers{
 }
 .clearfix:after {
   clear: both;
+}
+
+
+::selection {
+background: #88B04B;
+color: #fff;
+}
+::-moz-selection {
+background: #88B04B;
+color: #fff;
+}
+img::selection {
+background: transparent;
+}
+img::-moz-selection {
+background: transparent;
 }
