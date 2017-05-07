@@ -440,13 +440,16 @@ body.init .hamburgers{
   text-align: center;
 }
 #main .section:nth-child(2) .container2 .left img{
-  width: 14vh;
+/*  width: 14vh;*/
   cursor: pointer;
 }
 #main .section:nth-child(2) .container2 .right #aa_img{
-  width: 50vh;
+  width: 55vh;
   position: relative;
   left: 4vh;
+}
+#main .section:nth-child(2) .container2 .right #aa_img.bbig{
+  width: 50vh;
 }
 #bb_img img{
   visibility: hidden;
@@ -470,18 +473,21 @@ body.init .hamburgers{
   position: absolute;
   left: 70%;
   top: 0%;
+  z-index: 14
 }
 #a2{
   width: 13vh;
   position: absolute;
   left: 23%;
   top: 33%;
+  z-index: 17
 }
 #a3{
   width: 15vh;
   position: absolute;
   left: 0%;
   top: 43%;
+  z-index: 5
 }
 #a4{
   width: 20vh;
@@ -494,11 +500,12 @@ body.init .hamburgers{
   position: absolute;
   left: 24%;
   top: 59%;
+  z-index: 10
 }
 #a6{
   width: 20vh;    
   position: absolute;
-  left: 67%;
+  left: 70%;
   top: 40%;
 }
 #a7{
@@ -521,33 +528,33 @@ body.init .hamburgers{
 }
 #b1{
   position: absolute;
-  top: 25%;
-  left: 40%;
+  top: 30%;
+  left: 45%;
 }
 #b2{
   position: absolute;
-    top: 7%;
-    left: 44%;
+    top: 10%;
+    left: 18%;
 }
 #b3{
   position: absolute;
     top: 7%;
-    left: 60%;
+    left: 48%;
 }
 #b4{
   position: absolute;
-    top: 21%;
-    left: 35%;
+    top: -20%;
+    left: 55%;
 }
 #b5{
   position: absolute;
-    top: 26%;
-    left: 51%;
+    top: 20%;
+    left: 65%;
 }
 #b6{
   position: absolute;
-    top: 20%;
-    left: 70%;
+    top: -10%;
+    left: 30%;
 }
 #b7{
   position: absolute;
@@ -601,10 +608,10 @@ body.init .hamburgers{
 .product_img_open .close{
   position: absolute;
   display: inline-block;
-  right: 2vh;
-  top: 2vh;
+  right: -3vh;
+  top: -2vh;
   z-index: 55;
-  width: 6vh;
+  width: 7vh;
   cursor: pointer;
   
 }

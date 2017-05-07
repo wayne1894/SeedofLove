@@ -415,6 +415,7 @@ _loading();
                   k=k+1;
                   if(k==7){
                     $("#aa_img").attr("src","images/a/b8.png");
+                    $("#aa_img").addClass("bbig");
                     $(".twice").html("REPLACE").one("click",function(){
                       $(".container2").html(aaa);
                       ggg()
@@ -590,7 +591,7 @@ _loading();
 //https://developers.google.com/youtube/js_api_reference
       $('#background-video').YTPlayer({
         fitToBackground: true,
-        videoId: 'XDvrC_maI1M',
+        videoId: '0EWzcOjLa5I',
         mute : false,
         callback: function() {
           videoCallbackEvents();
@@ -886,7 +887,7 @@ var ting=false;
            ting_num=0;
            clearTimeout(timg_time);
            timg_time=undefined;
-         },3000)//3秒內按下15次 就會掉
+         },2000)//3秒內按下15次 就會掉
        }
       if(!gg)return;
       if(!ting){//代表沒被釘
@@ -897,7 +898,7 @@ var ting=false;
         $ting.css("left",x);
         $ting.css("top",y);
       }else{
-        if(ting_num>15){
+        if(ting_num>5){
           TweenMax.killTweensOf($("#left_hand"))
           TweenMax.to($("#left_hand"), 3, {rotation:"-180deg",y:600,opacity:0,transformOrigin:'100% 100%', yoyo:true, ease:Sine.easeOut});
         }
