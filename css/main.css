@@ -440,7 +440,7 @@ body.init .hamburgers{
   text-align: center;
 }
 #main .section:nth-child(2) .container2 .left img{
-/*  width: 14vh;*/
+  width: 14vh;
   cursor: pointer;
 }
 #main .section:nth-child(2) .container2 .right #aa_img{
@@ -569,6 +569,7 @@ body.init .hamburgers{
   width: 100%;
   margin-top: 4vh;
   display: table;
+  cursor: pointer;
 }
 .product_img>div{
   display: table-row;
@@ -581,6 +582,36 @@ body.init .hamburgers{
 .product_img img{
   width: 95%;;
 }
+.product_img_open{
+  display: none;
+}
+.product_img_open{
+  position: absolute;
+  z-index: 9999;
+  width: 103%;
+  height: 103%;
+  top: 3vh;
+  left: -2vh;
+}
+.product_img_open>img{
+  display: none;
+  width: 100%;
+  position: relative;
+}
+.product_img_open .close{
+  position: absolute;
+  display: inline-block;
+  right: 2vh;
+  top: 2vh;
+  z-index: 55;
+  width: 6vh;
+  cursor: pointer;
+  
+}
+.product_img_open .close img{
+  width: 100%;
+}
+
 .kk_parent{
   margin-top: 5vh;
   font-size: 3vh;
