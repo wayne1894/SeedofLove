@@ -814,8 +814,8 @@ _loading();
     $(document).mousewheel(wheelHandler)
   }
   function wheelHandler(e, delta) {
-    clear_scroll() //先清除
-    if(ting)auto_scroll();
+    //clear_scroll() //先清除
+    //if(ting)auto_scroll();
     if(mobile || document.getElementById("loading"))return
     var target = $(".nav div.active");
     if (delta > 0) {
@@ -892,7 +892,7 @@ var ting=false;
       if(!ting){//代表沒被釘
         ting_num=ting_num+1;
         tween_left.pause();//釘下去
-        auto_scroll();//設定自動輪播
+        //auto_scroll();//設定自動輪播
         ting=true;
         $ting.css("left",x);
         $ting.css("top",y);
