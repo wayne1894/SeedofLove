@@ -462,11 +462,13 @@ body.init .hamburgers{
 .twice{
   position: absolute;
    bottom: 1vh;
-  left: 0vh;
+  left: -4vh;
   font-size: 1.7vh;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  line-height: 20px;
   font-family: Microsoft JhengHei;
+  color:sienna
 }
 #a1{
   width: 19vh;
