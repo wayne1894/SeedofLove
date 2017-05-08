@@ -22,10 +22,10 @@
       $("#loading").remove();
       
       $("#lightbox2").css({opacity:1,boxShadow:"0 0 0 50vmax #8db943"});
-      TweenMax.to($("#lightbox2"), 1.7, { opacity:0,boxShadow:"0 0 0 50vmax #ffffff", ease:Power4.easeOut,onComplete:function(){
+      TweenMax.to($("#lightbox2"),1.7, { opacity:0,boxShadow:"0 0 0 50vmax #ffffff", ease:Power4.easeOut,onComplete:function(){
         $(document.body).removeClass("init");
       }});
-      
+       $("#main .section").eq(0).addClass("show");
     },1000);
   }
   var mobile
@@ -359,8 +359,8 @@ _loading();
         <a class="next changeSection" href="javascript:;"><img src="images/next.png"></a>
       </div>
     </div>
-    <div class="section">
-      <div class="main_title" style="top:12vh">
+    <div class="section eq2">
+      <div class="main_title" style="top:10vh">
           <div class="t1">
             C<span class="small">ONCEPT</span>
           </div>
@@ -383,6 +383,7 @@ _loading();
                  <img id="a7" src="images/a/a7.png">
                  <div class="twice">將植物點擊兩下<br>CLICK TWICE</div>
               </div>
+              <img id="final" style="display:none;" src="images/a/final.png" alt="">
             </div>
             <div class="right">
               <img id="aa_img" src="images/a/a8.png">
@@ -416,7 +417,7 @@ _loading();
                   if(k==7){
                     $("#aa_img").attr("src","images/a/b8.png");
                     $("#aa_img").addClass("bbig");
-                    $(".twice").html("REPLACE").one("click",function(){
+                   $("#final").show(); $(".twice").html("REPLACE").one("click",function(){
                       $(".container2").html(aaa);
                       ggg()
                     });
@@ -439,7 +440,7 @@ _loading();
           
       </div>
     </div>
-    <div class="section">
+    <div class="section eq3">
        <div class="main_title">
           <div class="t1">
             P<span class="small">RODUCT</span>
@@ -447,14 +448,14 @@ _loading();
           <div class="t3">series</div>
           <div class="product_img">
             <div>
-              <div><img class="lazy" data-src="images/p/c1.gif" onclick="open_modal('c1')"></div>
-              <div><img class="lazy" data-src="images/p/c2.gif" onclick="open_modal('c2')"></div>
-              <div><img class="lazy" data-src="images/p/c3.gif" onclick="open_modal('c3')"></div>
+              <div><img class="lazy q1" data-src="images/p/c1.gif" onclick="open_modal('c1')"></div>
+              <div><img class="lazy q2" data-src="images/p/c2.gif" onclick="open_modal('c2')"></div>
+              <div><img class="lazy q3" data-src="images/p/c3.gif" onclick="open_modal('c3')"></div>
             </div>
              <div>
-              <div><img class="lazy" data-src="images/p/c4.gif" onclick="open_modal('c4')"></div>
-              <div><img class="lazy" data-src="images/p/c5.gif" onclick="open_modal('c5')"></div>
-              <div><img class="lazy" data-src="images/p/c6.png" onclick="open_modal('c6')"></div>
+              <div><img class="lazy q4" data-src="images/p/c4.gif" onclick="open_modal('c4')"></div>
+              <div><img class="lazy q5" data-src="images/p/c5.gif" onclick="open_modal('c5')"></div>
+              <div><img class="lazy q6" data-src="images/p/c6.png" onclick="open_modal('c6')"></div>
              </div>
           </div>
           <div class="product_img_open">
@@ -697,24 +698,21 @@ _loading();
       easing: "easeInBack",
       complete : function(){
         $(".nav div").eq(0).addClass("active").siblings().removeClass("active");
+             $("#main .section").removeClass("show");
+            $("#main .section").eq(0).addClass("show");
       }
     });
   }
   $(function(){
     $('.lazy').lazy();
-    
     $(".nav div").click(function() {
       if(modal)close_modal();
        if($(this).hasClass("active"))return;
       $(this).addClass("active").siblings().removeClass("active");
         var index = $(this).index();
         new_index=index;
-      var duration=700;
-      var easing=[.825,0,.5,1];
-      if(ting){
-        duration=1000;
-        easing=[.825,0,.5,1];
-      }
+        var duration=900;
+        var easing=[.825,0,.5,1];
         $("#main .section").eq(index).velocity("stop", true).velocity("scroll",{
           duration: duration,
           easing: easing,
@@ -722,7 +720,9 @@ _loading();
             clearWheel();
           },
           complete: function(){
-            setWheel();
+            setTimeout(setWheel,1050);
+            $("#main .section").removeClass("show");
+            $("#main .section").eq(index).addClass("show");
           }
         });
     }).eq(0).click();
