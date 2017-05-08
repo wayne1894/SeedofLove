@@ -298,7 +298,7 @@ _loading();
       <img src="images/body_right.png" class="no-drag">
       <div class="area">
         <img id="jump" class="jump no-drag" src="images/jump.png" onmouseover="jump_click()">
-        <img class="_top" src="images/top.png" onclick="scroll_top()">
+        <img class="_top" src="images/top.png" onclick="scroll_top()" onmouseover="jump_click()">
         <img id="youtube" class="music no-drag" onclick="youtube_click()" src="images/music.png" >
       </div>
     </div>
@@ -639,8 +639,8 @@ _loading();
          sec=4.5;
          rotation="-160deg"
        }else if(number==0){
-         y=-15;
-         sec=0.5;
+         y=-30;
+         sec=0.8;
        }
        jump_tween=TweenMax.from($("#jump"), sec, {ease: Bounce.easeOut,transformOrigin:'50% 100%', y: y,x:x,rotation:rotation,onComplete:function(){
          is_jump=true;
@@ -832,14 +832,14 @@ _loading();
   function auto_scroll(){//設定自動輪播
    clear_scroll();
    auto_time=setTimeout(function(){
-     var target = $(".nav div.active");
-     if (target.index()==3) {
-       scroll_top();
+     var target = $("#section5");
+     if (target.find(".active").index()==3) {
+       target.eq(0).removeClass("active").addClass("active")
      }else{
-       target.next().click();
+       $(".next.changeSection").click();
      }
-     auto_scroll();
-   },4500)//4.5秒往下滑
+     auto_scroll()
+   },2000)//4.5秒往下滑
   }
   
 var ting=false;
