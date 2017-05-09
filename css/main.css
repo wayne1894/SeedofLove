@@ -274,6 +274,8 @@ body.init .hamburgers{
 }
 
 #main .section:first-child>div,#main .section:last-child>div,#main .section.eq2>div{
+	-ms-transform:  translateY(400px);
+	-webkit-transform:  translateY(400px);
   transform: translateY(400px);
 }
 #main .section.eq3 .product_img img{
@@ -282,11 +284,17 @@ body.init .hamburgers{
 }
 #main .section:first-child.show>div,#main .section:last-child.show>div,#main .section.eq2.show>div{
   opacity: 1;
+	-ms-transform: translateY(0);
+	-webkit-transform: translateY(0);
   transform: translateY(0);
+	-ms-transition: transform .7s cubic-bezier(.165,.84,.44,1), opacity 1s ease-in-out; /* IE 9 */
+  -webkit-transition: transform .7s cubic-bezier(.165,.84,.44,1), opacity 1s ease-in-out; /* Safari */
   transition:transform .7s cubic-bezier(.165,.84,.44,1), opacity 1s ease-in-out;
 }
 #main .section.show>div{
   opacity: 1;
+	-ms-transition: opacity 1s ease-in-out;
+	-webkit-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
 }
 
